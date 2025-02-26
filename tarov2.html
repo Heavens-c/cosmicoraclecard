@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Angelic Energy & Cosmic Oracle</title>
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #fff;
+      text-align: center;
+      background: radial-gradient(ellipse at center, #2b2e4a, #000000);
+      background-size: cover;
+      min-height: 100vh;
+      padding: 2rem;
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin-top: 2rem;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+    }
+    p.instructions, p.Note {
+      font-size: 1.2rem;
+      margin: 1rem 0 2rem 0;
+      text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+    }
+    /* Button Styling */
+    button {
+      background: linear-gradient(45deg, #89cff0, #a0e7e5);
+      border: none;
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
+      color: #000;
+      cursor: pointer;
+      border-radius: 50px;
+      margin: 0.5rem;
+      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    button:hover {
+      transform: scale(1.05);
+      box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.5);
+    }
+    /* Result Box Styling */
+    .result-box {
+      margin: 2rem auto;
+      padding: 1.5rem;
+      max-width: 600px;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 10px;
+      backdrop-filter: blur(10px);
+      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    }
+    .result-box h2 {
+      margin: 0.5rem 0;
+      font-size: 2rem;
+      text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+    }
+    .result-box p {
+      font-size: 1.2rem;
+      margin: 0.5rem 0;
+      text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+    }
+    .section {
+      margin-bottom: 3rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>Angelic Energy & Cosmic Oracle</h1>
+  <p class="instructions">
+    Think of your question and let it resonate within you. Then choose your path below:
+  </p>
+  <p class="Note">
+    NOTE: You can draw a Cosmic Tarot Card or receive an Angelic Energy Reading. (It's recommended to use this reading just once per day for the best insights.)
+  </p>
+  
+  <!-- Cosmic Tarot Section -->
+  <div class="section">
+    <button id="tarotBtn">Draw a Tarot Card</button>
+    <div id="tarotResult" class="result-box"></div>
+  </div>
+
+  <!-- Angelic Energy Reading Section -->
+  <div class="section">
+    <button id="angelicBtn">Receive Angelic Energy Reading</button>
+    <div id="angelicResult" class="result-box"></div>
+  </div>
+
+  <script>
+    // Cosmic Tarot Cards Array (75 Cards: 25 Major Arcana + 50 Minor Arcana)
+    // For brevity, the card data below includes full entries for the 25 Major Arcana and representative placeholders for the 50 Minor Arcana.
+    const cosmicCards = [
+      // Major Arcana (25 cards)
+      { name: "The Starseed", yes_no: "Yes", description: "A new journey begins with wonder and divine trust.", image: "images/tarot/the_starseed.jpg" },
+      { name: "The Magician", yes_no: "Yes", description: "Manifest cosmic energy; you have all the tools to shape your world.", image: "images/tarot/the_magician.jpg" },
+      { name: "The High Priestess", yes_no: "Yes", description: "Trust your intuition as secrets of the universe unfold.", image: "images/tarot/the_high_priestess.jpg" },
+      { name: "The Empress", yes_no: "Yes", description: "Abundance flows from the nurturing cosmic mother.", image: "images/tarot/the_empress.jpg" },
+      { name: "The Emperor", yes_no: "Yes", description: "Divine authority and stability create a secure foundation.", image: "images/tarot/the_emperor.jpg" },
+      { name: "The Hierophant", yes_no: "Yes", description: "Sacred traditions and spiritual guidance unite earth and heaven.", image: "images/tarot/the_hierophant.jpg" },
+      { name: "The Lovers", yes_no: "Yes", description: "Cosmic union and higher choices bring profound harmony.", image: "images/tarot/the_lovers.jpg" },
+      { name: "The Chariot", yes_no: "Yes", description: "Focused willpower and determination drive you forward.", image: "images/tarot/the_chariot.jpg" },
+      { name: "Strength", yes_no: "Yes", description: "Inner courage and compassion guide you through challenges.", image: "images/tarot/strength.jpg" },
+      { name: "The Hermit", yes_no: "No", description: "Seek wisdom in solitude before the next step of your journey.", image: "images/tarot/the_hermit.jpg" },
+      { name: "Wheel of Fortune", yes_no: "Yes", description: "Cycles of fate and destiny turn under cosmic forces.", image: "images/tarot/wheel_of_fortune.jpg" },
+      { name: "Justice", yes_no: "Yes", description: "Karma and fairness balance your actions with the universe.", image: "images/tarot/justice.jpg" },
+      { name: "The Hanged Man", yes_no: "No", description: "A pause and sacrifice reveal a new perspective.", image: "images/tarot/the_hanged_man.jpg" },
+      { name: "Transformation", yes_no: "No", description: "Endings clear the way for powerful rebirth.", image: "images/tarot/transformation.jpg" },
+      { name: "Temperance", yes_no: "Yes", description: "Blend opposites into harmony for healing and balance.", image: "images/tarot/temperance.jpg" },
+      { name: "The Shadow", yes_no: "No", description: "Face your inner darkness to liberate your true self.", image: "images/tarot/the_shadow.jpg" },
+      { name: "The Tower", yes_no: "No", description: "Sudden upheaval destroys false foundations for truth to emerge.", image: "images/tarot/the_tower.jpg" },
+      { name: "The Star", yes_no: "Yes", description: "Hope, inspiration, and healing radiate from divine light.", image: "images/tarot/the_star.jpg" },
+      { name: "The Moon", yes_no: "No", description: "Illusions and subconscious fears call for inner trust.", image: "images/tarot/the_moon.jpg" },
+      { name: "The Sun", yes_no: "Yes", description: "Joy and vitality burst forth in radiant success.", image: "images/tarot/the_sun.jpg" },
+      { name: "Awakening", yes_no: "Yes", description: "A profound inner calling transforms you from within.", image: "images/tarot/awakening.jpg" },
+      { name: "The Universe", yes_no: "Yes", description: "Completion and oneness with the cosmos bring fulfillment.", image: "images/tarot/the_universe.jpg" },
+      { name: "Ascension", yes_no: "Yes", description: "Rise to higher consciousness and embrace divine light.", image: "images/tarot/ascension.jpg" },
+      { name: "The Guardian Angel", yes_no: "Yes", description: "Heavenly protection surrounds you on every step.", image: "images/tarot/the_guardian_angel.jpg" },
+      { name: "The Source", yes_no: "Yes", description: "Return to oneness with infinite cosmic consciousness.", image: "images/tarot/the_source.jpg" },
+      // Minor Arcana (50 cards: 10 cards per suit; using representative placeholders)
+      // Suit: Stars
+      { name: "Ace of Stars", yes_no: "Yes", description: "A spark of inspiration ignites new creative energy.", image: "images/tarot/ace_of_stars.jpg" },
+      { name: "Two of Stars", yes_no: "Yes", description: "Balance and planning under starlight guide your dreams.", image: "images/tarot/two_of_stars.jpg" },
+      { name: "Three of Stars", yes_no: "Yes", description: "Early achievements signal that your efforts are paying off.", image: "images/tarot/three_of_stars.jpg" },
+      { name: "Four of Stars", yes_no: "Yes", description: "Celebrate stability and milestones achieved on your journey.", image: "images/tarot/four_of_stars.jpg" },
+      { name: "Five of Stars", yes_no: "No", description: "Conflict and challenge test your resolve and inner strength.", image: "images/tarot/five_of_stars.jpg" },
+      { name: "Six of Stars", yes_no: "Yes", description: "Triumph follows adversity as you rise above challenges.", image: "images/tarot/six_of_stars.jpg" },
+      { name: "Seven of Stars", yes_no: "Yes", description: "Stand firm with inner light when facing cosmic trials.", image: "images/tarot/seven_of_stars.jpg" },
+      { name: "Eight of Stars", yes_no: "Yes", description: "Swift momentum propels you forward with vibrant energy.", image: "images/tarot/eight_of_stars.jpg" },
+      { name: "Nine of Stars", yes_no: "Yes", description: "Resilience carries you near the fulfillment of your dreams.", image: "images/tarot/nine_of_stars.jpg" },
+      { name: "Ten of Stars", yes_no: "No", description: "Overwhelming responsibilities weigh you down—seek relief.", image: "images/tarot/ten_of_stars.jpg" },
+      // Suit: Moons
+      { name: "Ace of Moons", yes_no: "Yes", description: "A surge of emotional insight opens new realms of possibility.", image: "images/tarot/ace_of_moons.jpg" },
+      { name: "Two of Moons", yes_no: "Yes", description: "Balanced emotions guide your choices with gentle wisdom.", image: "images/tarot/two_of_moons.jpg" },
+      { name: "Three of Moons", yes_no: "Yes", description: "Joyful celebrations bring creative energy and friendship.", image: "images/tarot/three_of_moons.jpg" },
+      { name: "Four of Moons", yes_no: "No", description: "Apathy or missed opportunities call for renewed engagement.", image: "images/tarot/four_of_moons.jpg" },
+      { name: "Five of Moons", yes_no: "No", description: "Sorrow and loss suggest healing is needed from emotional wounds.", image: "images/tarot/five_of_moons.jpg" },
+      { name: "Six of Moons", yes_no: "Yes", description: "Nostalgia and kind memories bring gentle healing.", image: "images/tarot/six_of_moons.jpg" },
+      { name: "Seven of Moons", yes_no: "No", description: "Illusions cloud judgment—seek clarity from within.", image: "images/tarot/seven_of_moons.jpg" },
+      { name: "Eight of Moons", yes_no: "No", description: "A quest for deeper meaning calls you away from the familiar.", image: "images/tarot/eight_of_moons.jpg" },
+      { name: "Nine of Moons", yes_no: "Yes", description: "Gratitude and fulfillment arise when inner desires are met.", image: "images/tarot/nine_of_moons.jpg" },
+      { name: "Ten of Moons", yes_no: "Yes", description: "Emotional fulfillment and joyful connections abound.", image: "images/tarot/ten_of_moons.jpg" },
+      // Suit: Comets
+      { name: "Ace of Comets", yes_no: "Yes", description: "A breakthrough idea pierces through the cosmic night.", image: "images/tarot/ace_of_comets.jpg" },
+      { name: "Two of Comets", yes_no: "No", description: "Indecision and blockages require balance and reflection.", image: "images/tarot/two_of_comets.jpg" },
+      { name: "Three of Comets", yes_no: "No", description: "Heartache and release open the door to emotional healing.", image: "images/tarot/three_of_comets.jpg" },
+      { name: "Four of Comets", yes_no: "No", description: "Rest and recovery are needed before moving forward.", image: "images/tarot/four_of_comets.jpg" },
+      { name: "Five of Comets", yes_no: "No", description: "Conflict teaches lessons—embrace growth through challenge.", image: "images/tarot/five_of_comets.jpg" },
+      { name: "Six of Comets", yes_no: "Yes", description: "Transition brings hope and the promise of new beginnings.", image: "images/tarot/six_of_comets.jpg" },
+      { name: "Seven of Comets", yes_no: "No", description: "Hidden deceptions urge caution and truth-seeking.", image: "images/tarot/seven_of_comets.jpg" },
+      { name: "Eight of Comets", yes_no: "No", description: "Restrictions feel heavy—summon the courage to break free.", image: "images/tarot/eight_of_comets.jpg" },
+      { name: "Nine of Comets", yes_no: "No", description: "Anxiety calls for healing and solace in divine support.", image: "images/tarot/nine_of_comets.jpg" },
+      { name: "Ten of Comets", yes_no: "No", description: "The end of a cycle heralds the promise of a new dawn.", image: "images/tarot/ten_of_comets.jpg" },
+      // Suit: Worlds
+      { name: "Ace of Worlds", yes_no: "Yes", description: "A seed of new opportunity in the material realm is planted.", image: "images/tarot/ace_of_worlds.jpg" },
+      { name: "Two of Worlds", yes_no: "Yes", description: "Balancing responsibilities leads to harmonious progress.", image: "images/tarot/two_of_worlds.jpg" },
+      { name: "Three of Worlds", yes_no: "Yes", description: "Collaboration builds a future based on shared vision.", image: "images/tarot/three_of_worlds.jpg" },
+      { name: "Four of Worlds", yes_no: "No", description: "Holding on too tightly may block the flow of abundance.", image: "images/tarot/four_of_worlds.jpg" },
+      { name: "Five of Worlds", yes_no: "No", description: "Temporary hardships call for support and resilience.", image: "images/tarot/five_of_worlds.jpg" },
+      { name: "Six of Worlds", yes_no: "Yes", description: "Generosity creates a cycle of positive exchange.", image: "images/tarot/six_of_worlds.jpg" },
+      { name: "Seven of Worlds", yes_no: "No", description: "Patience is required as rewards slowly come to fruition.", image: "images/tarot/seven_of_worlds.jpg" },
+      { name: "Eight of Worlds", yes_no: "Yes", description: "Diligence and skill lead to mastery and success.", image: "images/tarot/eight_of_worlds.jpg" },
+      { name: "Nine of Worlds", yes_no: "Yes", description: "Achievement and luxury are the fruits of your labor.", image: "images/tarot/nine_of_worlds.jpg" },
+      { name: "Ten of Worlds", yes_no: "Yes", description: "Legacy and lasting security manifest in your material life.", image: "images/tarot/ten_of_worlds.jpg" },
+      // Suit: Angels
+      { name: "Ace of Angels", yes_no: "Yes", description: "A divine message initiates new spiritual insights.", image: "images/tarot/ace_of_angels.jpg" },
+      { name: "Two of Angels", yes_no: "Yes", description: "Sacred partnerships guided by heaven lead to clarity.", image: "images/tarot/two_of_angels.jpg" },
+      { name: "Three of Angels", yes_no: "Yes", description: "Growth and shared blessings uplift your spirit.", image: "images/tarot/three_of_angels.jpg" },
+      { name: "Four of Angels", yes_no: "Yes", description: "Stability and prayer create a secure haven of faith.", image: "images/tarot/four_of_angels.jpg" },
+      { name: "Five of Angels", yes_no: "No", description: "Challenges test your trust in divine guidance.", image: "images/tarot/five_of_angels.jpg" },
+      { name: "Six of Angels", yes_no: "Yes", description: "Harmony and resolution are restored by loving energies.", image: "images/tarot/six_of_angels.jpg" },
+      { name: "Seven of Angels", yes_no: "No", description: "Unrevealed truths urge patience and trust in the unseen.", image: "images/tarot/seven_of_angels.jpg" },
+      { name: "Eight of Angels", yes_no: "Yes", description: "Empowerment and hope flow as divine strength uplifts you.", image: "images/tarot/eight_of_angels.jpg" },
+      { name: "Nine of Angels", yes_no: "Yes", description: "Spiritual fulfillment blossoms from your deep connection with the divine.", image: "images/tarot/nine_of_angels.jpg" },
+      { name: "Ten of Angels", yes_no: "Yes", description: "Completion and transcendence bring you into divine unity.", image: "images/tarot/ten_of_angels.jpg" }
+    ];
+    
+    // Expanded Angelic Energy Readings Array (20 readings)
+    const angelicReadings = [
+      { title: "Guiding Light", reading: "Your guardian angels illuminate your path. Trust the signs and subtle nudges that lead you toward your highest good.", image: "images/angelic_readings/guiding_light.jpg" },
+      { title: "Protective Wings", reading: "Feel the embrace of divine protection. Angelic wings shelter you from harm and guide you with unwavering support.", image: "images/angelic_readings/protective_wings.jpg" },
+      { title: "Wisdom from Beyond", reading: "Listen closely—angels are whispering sacred truths. Their wisdom offers clarity in moments of uncertainty.", image: "images/angelic_readings/wisdom_from_beyond.jpg" },
+      { title: "Enlightened Path", reading: "A spiritual awakening is unfolding. Your angels guide you toward clarity and deep inner peace.", image: "images/angelic_readings/enlightened_path.jpg" },
+      { title: "Healing Grace", reading: "Let the healing light of angels wash over you. Embrace the comfort and restoration that comes from divine love.", image: "images/angelic_readings/healing_grace.jpg" },
+      { title: "Courage and Strength", reading: "Divine support bolsters your inner courage. Face challenges with the knowledge that you are never alone.", image: "images/angelic_readings/courage_and_strength.jpg" },
+      { title: "Unconditional Love", reading: "Angels envelop you in boundless love. Their compassion dissolves all fear, leaving your heart open to joy.", image: "images/angelic_readings/unconditional_love.jpg" },
+      { title: "Divine Insight", reading: "Clear revelations from the angelic realm guide you forward. Trust the insights that spark clarity and true understanding.", image: "images/angelic_readings/divine_insight.jpg" },
+      { title: "Abundant Blessings", reading: "Your alignment with the divine draws prosperity and joy. Embrace the flow of abundant blessings in your life.", image: "images/angelic_readings/abundant_blessings.jpg" },
+      { title: "Sacred Transformation", reading: "A powerful shift is underway. Embrace transformation as you evolve into a higher version of yourself, guided by celestial love.", image: "images/angelic_readings/sacred_transformation.jpg" },
+      { title: "Celestial Harmony", reading: "Experience the profound balance of the cosmos. Angelic harmony infuses your life with peace and joyful resonance.", image: "images/angelic_readings/celestial_harmony.jpg" },
+      { title: "Seraphic Song", reading: "Heavenly choirs sing a melody of hope and renewal. Allow their music to uplift your spirit and soothe your soul.", image: "images/angelic_readings/seraphic_song.jpg" },
+      { title: "Mystic Reassurance", reading: "In times of doubt, the angels reassure you with gentle signs. Their soft whispers remind you that all is as it should be.", image: "images/angelic_readings/mystic_reassurance.jpg" },
+      { title: "Eternal Embrace", reading: "Feel the timeless embrace of divine love. You are held in an eternal circle of protection and care by your angelic guides.", image: "images/angelic_readings/eternal_embrace.jpg" },
+      { title: "Cosmic Renewal", reading: "A refreshing wave of spiritual energy revitalizes your being. Embrace the new beginnings and opportunities that await you.", image: "images/angelic_readings/cosmic_renewal.jpg" },
+      { title: "Angelic Awakening", reading: "Awaken to your highest self as the angels open your eyes to hidden truths and profound insights.", image: "images/angelic_readings/angelic_awakening.jpg" },
+      { title: "Heaven's Promise", reading: "The promise of divine support is ever-present. Trust that every step you take is guided by a higher plan.", image: "images/angelic_readings/heavens_promise.jpg" },
+      { title: "Radiant Unity", reading: "Feel the powerful unity of the cosmos. Your connection to the divine is a source of infinite strength and joy.", image: "images/angelic_readings/radiant_unity.jpg" },
+      { title: "Infinite Compassion", reading: "Let the boundless compassion of the angels soothe your heart. Their empathy helps you heal and grow stronger every day.", image: "images/angelic_readings/infinite_compassion.jpg" },
+      { title: "Divine Alignment", reading: "Your path is perfectly aligned with the cosmos. Embrace the synchronicity of life as the angels guide your every step.", image: "images/angelic_readings/divine_alignment.jpg" }
+    ];
+    
+    // Event listeners for buttons
+    document.getElementById("tarotBtn").addEventListener("click", function() {
+      const card = cosmicCards[Math.floor(Math.random() * cosmicCards.length)];
+      document.getElementById("tarotResult").innerHTML = `<h2>${card.name} - ${card.yes_no}</h2><p>${card.description}</p>`;
+    });
+    
+    document.getElementById("angelicBtn").addEventListener("click", function() {
+      const reading = angelicReadings[Math.floor(Math.random() * angelicReadings.length)];
+      document.getElementById("angelicResult").innerHTML = `<h2>${reading.title}</h2><p>${reading.reading}</p>`;
+    });
+  </script>
+</body>
+</html>
