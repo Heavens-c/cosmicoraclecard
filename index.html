@@ -2,220 +2,2224 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Angelic Energy & Oracle Card</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Celestial Portal - Cosmic Tarot & Angelic Sanctuary</title>
+  <!-- Google Fonts for premium mystical typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
   <style>
-    /* Global Styles */
-    /* Global Styles */
+    :root {
+      --bg-dark: #070814;
+      --bg-panel: rgba(13, 15, 35, 0.7);
+      --bg-panel-hover: rgba(25, 28, 60, 0.85);
+      --border-color: rgba(229, 193, 88, 0.2);
+      --border-glowing: rgba(229, 193, 88, 0.5);
+      --accent-gold: #dfb15b;
+      --accent-gold-rgb: 223, 177, 91;
+      --text-main: #f3f4f6;
+      --text-muted: #9ca3af;
+      
+      --color-major: #dfb15b;
+      --color-stars: #ff7675;
+      --color-moons: #00cec9;
+      --color-comets: #a29bfe;
+      --color-worlds: #55efc4;
+      --color-angels: #ffeaa7;
+      
+      --font-mystical: 'Cinzel', serif;
+      --font-body: 'Outfit', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      color: #fff;
-      text-align: center;
-      /* Starry background image with fixed positioning */
-      background: url('stars_background.jpg') no-repeat center center fixed;
+      font-family: var(--font-body);
+      color: var(--text-main);
+      background: radial-gradient(circle at center, rgba(29, 17, 53, 0.85) 0%, rgba(7, 8, 20, 0.98) 100%), url('stars_background.jpg') no-repeat center center fixed;
       background-size: cover;
       min-height: 100vh;
-      padding: 2rem;
-      position: relative;
-      z-index: 0;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+      line-height: 1.6;
     }
-    h1 {
-      font-size: 2.5rem;
-      margin-top: 2rem;
-      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+
+    /* Custom Scrollbars */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
     }
-    p.instructions, p.Note {
-      font-size: 1.2rem;
-      margin: 1rem 0 2rem 0;
-      text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+    ::-webkit-scrollbar-track {
+      background: rgba(7, 8, 20, 0.95);
     }
-    /* Button Styling */
-    button {
-      background: linear-gradient(45deg, #89cff0, #a0e7e5);
-      border: none;
-      padding: 0.8rem 1.5rem;
-      font-size: 1rem;
-      color: #000;
-      cursor: pointer;
-      border-radius: 50px;
-      margin: 0.5rem;
-      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    ::-webkit-scrollbar-thumb {
+      background: var(--accent-gold);
+      border-radius: 4px;
     }
-    button:hover {
-      transform: scale(1.05);
-      box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.5);
+    ::-webkit-scrollbar-thumb:hover {
+      background: #cba04c;
     }
-    /* Result Box Styling */
-    .result-box {
-      margin: 2rem auto;
-      padding: 1.5rem;
-      max-width: 600px;
-      background: rgba(255, 255, 255, 0.15);
-      border-radius: 10px;
+
+    header {
+      background: rgba(7, 8, 20, 0.6);
       backdrop-filter: blur(10px);
-      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+      border-bottom: 1px solid var(--border-color);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
-    .result-box h2 {
-      margin: 0.5rem 0;
-      font-size: 2rem;
-      text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+
+    .header-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
-    .result-box p {
-      font-size: 1.2rem;
-      margin: 0.5rem 0;
-      text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+
+    .header-logo svg {
+      width: 35px;
+      height: 35px;
+      fill: var(--accent-gold);
+      filter: drop-shadow(0 0 6px var(--accent-gold));
     }
-    .section {
-      margin-bottom: 3rem;
+
+    .header-title {
+      font-family: var(--font-mystical);
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      background: linear-gradient(to right, #ffffff, var(--accent-gold), #ffffff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .header-controls {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .btn-icon {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      padding: 0.6rem 1rem;
+      border-radius: 30px;
+      cursor: pointer;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .btn-icon:hover {
+      background: rgba(var(--accent-gold-rgb), 0.15);
+      border-color: var(--accent-gold);
+      box-shadow: 0 0 10px rgba(var(--accent-gold-rgb), 0.2);
+    }
+
+    /* Main Dashboard Layout */
+    .dashboard-container {
+      display: flex;
+      flex: 1;
+      position: relative;
+    }
+
+    /* Sidebar Navigation */
+    .sidebar {
+      width: 250px;
+      background: rgba(7, 8, 20, 0.4);
+      backdrop-filter: blur(5px);
+      border-right: 1px solid var(--border-color);
+      padding: 2rem 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .nav-btn {
+      background: transparent;
+      border: 1px solid transparent;
+      color: var(--text-muted);
+      text-align: left;
+      padding: 1rem 1.25rem;
+      font-size: 1rem;
+      font-family: var(--font-body);
+      font-weight: 500;
+      border-radius: 10px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transition: all 0.3s ease;
+      width: 100%;
+    }
+
+    .nav-btn svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+      transition: fill 0.3s ease;
+    }
+
+    .nav-btn:hover {
+      color: var(--text-main);
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .nav-btn.active {
+      color: var(--accent-gold);
+      background: rgba(var(--accent-gold-rgb), 0.1);
+      border-color: rgba(var(--accent-gold-rgb), 0.3);
+      box-shadow: inset 0 0 8px rgba(var(--accent-gold-rgb), 0.1);
+    }
+
+    /* Content Area */
+    .content-area {
+      flex: 1;
+      padding: 2rem;
+      overflow-y: auto;
+      max-height: calc(100vh - 75px);
+    }
+
+    .tab-content {
+      display: none;
+      animation: fadeIn 0.5s ease;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Typography & Core Styles */
+    h2 {
+      font-family: var(--font-mystical);
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+      color: #fff;
+      letter-spacing: 1px;
+    }
+
+    .section-subtitle {
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+      font-size: 1.1rem;
+    }
+
+    /* Glass Panels */
+    .glass-panel {
+      background: var(--bg-panel);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 2rem;
+      backdrop-filter: blur(15px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      margin-bottom: 2rem;
+    }
+
+    /* Interactive Spread Board */
+    .spread-setup {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    @media (max-width: 768px) {
+      .spread-setup {
+        grid-template-columns: 1fr;
+      }
+      .dashboard-container {
+        flex-direction: column;
+      }
+      .sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+        flex-direction: row;
+        overflow-x: auto;
+        padding: 1rem;
+      }
+      .nav-btn {
+        padding: 0.75rem;
+        font-size: 0.9rem;
+        white-space: nowrap;
+        justify-content: center;
+      }
+      .content-area {
+        max-height: none;
+      }
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    label {
+      font-family: var(--font-mystical);
+      color: var(--accent-gold);
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+    }
+
+    select, input, textarea {
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid var(--border-color);
+      padding: 0.8rem 1.2rem;
+      border-radius: 8px;
+      color: white;
+      font-family: var(--font-body);
+      font-size: 1rem;
+      outline: none;
+      transition: all 0.3s ease;
+      width: 100%;
+    }
+
+    select:focus, input:focus, textarea:focus {
+      border-color: var(--accent-gold);
+      box-shadow: 0 0 10px rgba(var(--accent-gold-rgb), 0.2);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent-gold), #b3883b);
+      color: #070814;
+      font-family: var(--font-mystical);
+      font-weight: 700;
+      border: none;
+      padding: 1rem 2rem;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      letter-spacing: 1.5px;
+      box-shadow: 0 5px 15px rgba(var(--accent-gold-rgb), 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(var(--accent-gold-rgb), 0.5);
+    }
+
+    .btn-primary:active {
+      transform: translateY(0);
+    }
+
+    /* Spread Layout Board */
+    .spread-board-wrapper {
+      margin-top: 2rem;
+      padding: 2rem;
+      border: 1px dashed var(--border-color);
+      border-radius: 16px;
+      background: rgba(0, 0, 0, 0.2);
+      min-height: 400px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .spread-slots-grid {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2.5rem;
+      margin-top: 2rem;
+      width: 100%;
+    }
+
+    .slot-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .slot-label {
+      font-family: var(--font-mystical);
+      font-size: 0.9rem;
+      color: var(--accent-gold);
+      letter-spacing: 1px;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    /* Beautiful 3D Cards */
+    .card-wrapper {
+      perspective: 1000px;
+      width: 170px;
+      height: 280px;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .card-inner {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.2);
+      border-radius: 12px;
+    }
+
+    .card-wrapper.dealt {
+      animation: dealCard 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.15) both;
+    }
+
+    @keyframes dealCard {
+      from {
+        opacity: 0;
+        transform: translateY(-80px) rotate(-15deg) scale(0.6);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) rotate(0) scale(1);
+      }
+    }
+
+    .card-wrapper.flipped .card-inner {
+      transform: rotateY(180deg);
+    }
+
+    /* Handle Tarot Reversed Status */
+    .card-wrapper.flipped.reversed .card-inner {
+      transform: rotateY(180deg) rotateZ(180deg);
+    }
+
+    .card-back, .card-front {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      backface-visibility: hidden;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    /* Ethereal Card Back design */
+    .card-back {
+      background: radial-gradient(circle at center, #1b163a 0%, #080614 100%);
+      border: 2px solid var(--accent-gold);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px;
+    }
+
+    .card-back-pattern {
+      width: 100%;
+      height: 100%;
+      border: 1px solid rgba(223, 177, 91, 0.3);
+      border-radius: 8px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .card-back-pattern::after {
+      content: '';
+      position: absolute;
+      width: calc(100% - 12px);
+      height: calc(100% - 12px);
+      border: 1px solid rgba(223, 177, 91, 0.15);
+      border-radius: 6px;
+    }
+
+    .card-back svg {
+      width: 80px;
+      height: 80px;
+      fill: none;
+      stroke: var(--accent-gold);
+      stroke-width: 1;
+      opacity: 0.65;
+    }
+
+    /* Card Front design */
+    .card-front {
+      background: radial-gradient(circle at center, #0f1026 0%, #05060f 100%);
+      border: 2px solid var(--card-theme-color, var(--accent-gold));
+      transform: rotateY(180deg);
+      padding: 1.25rem 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+    }
+
+    .card-front-border {
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      right: 5px;
+      bottom: 5px;
+      border: 1px dashed rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      pointer-events: none;
+    }
+
+    .card-front-suit {
+      font-family: var(--font-mystical);
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--card-theme-color, var(--accent-gold));
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+
+    .card-icon-container {
+      width: 90px;
+      height: 90px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 10px 0;
+    }
+
+    .card-icon {
+      width: 100%;
+      height: 100%;
+    }
+
+    .card-front-title {
+      font-family: var(--font-mystical);
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-align: center;
+      margin: 5px 0;
+      color: #fff;
+      letter-spacing: 0.5px;
+      height: 38px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card-front-keywords {
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 5px;
+      line-height: 1.3;
+    }
+
+    /* Detailed Reading Area */
+    .reading-details-area {
+      margin-top: 3rem;
+      animation: fadeIn 0.6s ease;
+    }
+
+    .reading-panel-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .detail-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 1.5rem;
+      position: relative;
+    }
+
+    .detail-card-badge {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      font-size: 0.75rem;
+      border-radius: 20px;
+      text-transform: uppercase;
+      font-weight: 600;
+      letter-spacing: 1px;
+      margin-bottom: 1rem;
+    }
+
+    .detail-card-title {
+      font-family: var(--font-mystical);
+      font-size: 1.3rem;
+      color: white;
+      margin-bottom: 0.5rem;
+    }
+
+    .detail-card-keywords {
+      color: var(--accent-gold);
+      font-size: 0.85rem;
+      margin-bottom: 0.75rem;
+      font-style: italic;
+    }
+
+    .detail-card-description {
+      font-size: 0.95rem;
+      color: var(--text-main);
+      margin-bottom: 1rem;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      border: 1px solid var(--border-color);
+      color: var(--accent-gold);
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--accent-gold);
+      background: rgba(var(--accent-gold-rgb), 0.05);
+    }
+
+    .reading-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    /* Cosmic Codex (Encyclopedia) */
+    .codex-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .filter-btn {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      padding: 0.5rem 1.25rem;
+      border-radius: 20px;
+      cursor: pointer;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+    }
+
+    .filter-btn:hover {
+      color: var(--text-main);
+      border-color: rgba(255,255,255,0.2);
+    }
+
+    .filter-btn.active {
+      background: var(--btn-color, var(--accent-gold));
+      color: #070814;
+      border-color: var(--btn-color, var(--accent-gold));
+      font-weight: 600;
+      box-shadow: 0 0 10px rgba(255,255,255,0.1);
+    }
+
+    .codex-search {
+      margin-bottom: 2rem;
+    }
+
+    .codex-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .codex-card {
+      background: rgba(13, 15, 35, 0.6);
+      border: 1.5px solid var(--card-color);
+      border-radius: 12px;
+      padding: 1.25rem 0.75rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+    }
+
+    .codex-card::before {
+      content: '';
+      position: absolute;
+      top: 4px;
+      left: 4px;
+      right: 4px;
+      bottom: 4px;
+      border: 1px dashed rgba(255, 255, 255, 0.05);
+      border-radius: 8px;
+    }
+
+    .codex-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6), 0 0 15px rgba(var(--accent-gold-rgb), 0.1);
+      background: rgba(25, 28, 60, 0.6);
+    }
+
+    .codex-card svg {
+      width: 65px;
+      height: 65px;
+      margin-bottom: 0.75rem;
+    }
+
+    .codex-card-title {
+      font-family: var(--font-mystical);
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.25rem;
+    }
+
+    .codex-card-suit {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--card-color);
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+
+    /* Interactive Modal */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(7, 8, 20, 0.85);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+      overflow-y: auto;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .modal-container {
+      background: #0f1126;
+      border: 2px solid var(--accent-gold);
+      border-radius: 16px;
+      max-width: 700px;
+      width: 100%;
+      padding: 2.5rem;
+      box-shadow: 0 15px 45px rgba(0, 0, 0, 0.8), 0 0 30px rgba(var(--accent-gold-rgb), 0.15);
+      position: relative;
+      animation: modalOpen 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.15) both;
+    }
+
+    @keyframes modalOpen {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-size: 1.8rem;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    .modal-close:hover {
+      color: #fff;
+    }
+
+    .modal-grid {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 2rem;
+    }
+
+    @media (max-width: 600px) {
+      .modal-grid {
+        grid-template-columns: 1fr;
+        justify-items: center;
+      }
+      .modal-container {
+        padding: 1.5rem;
+      }
+    }
+
+    .modal-card-art {
+      width: 170px;
+      height: 280px;
+      border-radius: 12px;
+      border: 2.5px solid var(--modal-theme-color);
+      background: radial-gradient(circle at center, #0f1026 0%, #05060f 100%);
+      padding: 1.5rem 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+    }
+
+    .modal-content-details {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .modal-title-row h3 {
+      font-family: var(--font-mystical);
+      font-size: 1.8rem;
+      color: white;
+    }
+
+    .modal-subtitle-row {
+      display: flex;
+      gap: 15px;
+      font-size: 0.85rem;
+      color: var(--modal-theme-color);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 600;
+    }
+
+    .modal-section-title {
+      font-family: var(--font-mystical);
+      font-size: 1rem;
+      color: var(--accent-gold);
+      letter-spacing: 1px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 0.25rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .modal-desc-text {
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .modal-advice-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    @media (max-width: 480px) {
+      .modal-advice-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .advice-block {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 8px;
+      padding: 0.75rem;
+    }
+
+    .advice-block-title {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--accent-gold);
+      margin-bottom: 0.25rem;
+    }
+
+    /* Angelic Sanctuary */
+    .sanctuary-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    @media (max-width: 900px) {
+      .sanctuary-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .angelic-card-display {
+      min-height: 350px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      border: 1px dashed var(--border-color);
+      border-radius: 12px;
+      padding: 2rem;
+      background: rgba(0, 0, 0, 0.2);
+    }
+
+    .breathing-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 350px;
+    }
+
+    /* Breathing Grounding Bubble */
+    .bubble-container {
+      width: 200px;
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      margin: 1.5rem 0;
+    }
+
+    .breathing-bubble {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0, 206, 201, 0.3) 0%, rgba(162, 155, 254, 0.3) 70%, rgba(223, 177, 91, 0.1) 100%);
+      border: 2px solid rgba(0, 206, 201, 0.6);
+      box-shadow: 0 0 30px rgba(0, 206, 201, 0.4), inset 0 0 20px rgba(162, 155, 254, 0.3);
+      transition: all 4s ease-in-out;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .bubble-text {
+      font-family: var(--font-mystical);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #fff;
+      text-shadow: 0 0 8px rgba(0,0,0,0.8);
+      letter-spacing: 1px;
+    }
+
+    /* Bubble states driven by javascript */
+    .breathing-bubble.inhale {
+      transform: scale(1.6);
+      border-color: rgba(255, 234, 167, 0.8);
+      box-shadow: 0 0 50px rgba(255, 234, 167, 0.6), inset 0 0 30px rgba(255, 234, 167, 0.4);
+    }
+
+    .breathing-bubble.hold {
+      transform: scale(1.6);
+      border-color: rgba(223, 177, 91, 0.8);
+      box-shadow: 0 0 50px rgba(223, 177, 91, 0.6), inset 0 0 30px rgba(223, 177, 91, 0.4);
+    }
+
+    .breathing-bubble.exhale {
+      transform: scale(1);
+      border-color: rgba(0, 206, 201, 0.6);
+      box-shadow: 0 0 30px rgba(0, 206, 201, 0.4), inset 0 0 20px rgba(0, 206, 201, 0.2);
+    }
+
+    .angel-number-display {
+      font-size: 3rem;
+      font-family: var(--font-mystical);
+      color: var(--accent-gold);
+      letter-spacing: 5px;
+      margin: 1rem 0;
+      text-shadow: 0 0 15px rgba(var(--accent-gold-rgb), 0.5);
+    }
+
+    /* Reader's Journal */
+    .journal-timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .journal-card {
+      background: rgba(13, 15, 35, 0.5);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .journal-card:hover {
+      border-color: rgba(var(--accent-gold-rgb), 0.4);
+      background: rgba(19, 21, 48, 0.6);
+    }
+
+    .journal-header {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      padding-bottom: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .journal-date-spread {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .journal-date {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .journal-spread-type {
+      font-family: var(--font-mystical);
+      font-size: 0.95rem;
+      color: var(--accent-gold);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .journal-question {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #fff;
+      margin-bottom: 1rem;
+      font-style: italic;
+    }
+
+    .journal-cards-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .journal-card-token {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--token-color);
+      padding: 0.4rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .journal-card-token span {
+      color: var(--token-color);
+      font-weight: 600;
+    }
+
+    .journal-notes-section {
+      background: rgba(0, 0, 0, 0.25);
+      border-radius: 8px;
+      padding: 1rem;
+      border-left: 3px solid var(--accent-gold);
+    }
+
+    .journal-notes-header {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      color: var(--accent-gold);
+      font-weight: 600;
+      letter-spacing: 1px;
+      margin-bottom: 0.5rem;
+    }
+
+    .journal-notes-body {
+      font-size: 0.95rem;
+      color: var(--text-main);
+      white-space: pre-wrap;
+    }
+
+    .btn-delete {
+      background: transparent;
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      color: #ef4444;
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      transition: all 0.3s ease;
+    }
+
+    .btn-delete:hover {
+      background: rgba(239, 68, 68, 0.1);
+      border-color: #ef4444;
+    }
+
+    /* Beginner's Academy Grid */
+    .academy-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .academy-card {
+      background: rgba(13, 15, 35, 0.5);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.5rem;
+    }
+
+    .academy-card-title {
+      font-family: var(--font-mystical);
+      color: var(--accent-gold);
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 0.5rem;
+    }
+
+    .academy-list {
+      list-style-type: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .academy-list li {
+      position: relative;
+      padding-left: 20px;
+      font-size: 0.95rem;
+    }
+
+    .academy-list li::before {
+      content: '✦';
+      position: absolute;
+      left: 0;
+      color: var(--accent-gold);
+    }
+
+    .academy-list strong {
+      color: #fff;
+    }
+
+    /* Sound notification settings */
+    .sound-badge {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 0.25rem;
     }
   </style>
 </head>
 <body>
-  <h1>Angelic Energy & Cosmic Oracle</h1>
-  <p class="instructions">
-    Think of your question and let it resonate within you. Then choose your path below:
-  </p>
-  <p class="Note">
-    NOTE: You can draw a Card or receive an Angelic Energy Reading. (It's recommended to use this reading just once per day for the best insights.)
-  </p>
-   <p class="Note">
-    NOTE: its better have physical  for drawing a card for more accurate answer
-  </p>
-  <!-- Cosmic Tarot Section -->
-  <div class="section">
-    <button id="tarotBtn">Draw a Tarot Card</button>
-    <div id="tarotResult" class="result-box"></div>
+
+  <!-- Celestial Header -->
+  <header>
+    <div class="header-logo">
+      <svg viewBox="0 0 100 100">
+        <!-- Celestial Compass/Eye Emblem -->
+        <circle cx="50" cy="50" r="35" stroke="currentColor" stroke-width="1.5" fill="none"/>
+        <path d="M50,15 L50,85 M15,50 L85,50" stroke="currentColor" stroke-width="1"/>
+        <polygon points="50,25 40,50 50,75 60,50" stroke="currentColor" stroke-width="1.5" fill="none"/>
+        <circle cx="50" cy="50" r="6" fill="currentColor"/>
+        <path d="M25,25 L75,75 M25,75 L75,25" stroke="currentColor" stroke-width="0.5" stroke-dasharray="2,2"/>
+      </svg>
+      <div>
+        <h1 class="header-title">Celestial Portal</h1>
+        <div style="font-size:0.75rem; color:var(--text-muted); letter-spacing:1px; text-transform:uppercase;">Cosmic Tarot & Angelic Sanctuary</div>
+      </div>
+    </div>
+    <div class="header-controls">
+      <div style="display:flex; flex-direction:column; align-items:flex-end;">
+        <button id="soundToggleBtn" class="btn-icon">
+          <span id="soundIcon">🔇</span>
+          <span id="soundText">Sound Off</span>
+        </button>
+        <span class="sound-badge" id="soundStatusText">Click to enable ambient audio guides</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Dashboard Container -->
+  <div class="dashboard-container">
+    
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar">
+      <button class="nav-btn active" data-tab="spread-room">
+        <svg viewBox="0 0 24 24"><path d="M19,2H5C3.89,2 3,2.89 3,4V20C3,21.11 3.89,22 5,22H19C20.11,22 21,21.11 21,20V4C21,2.89 20.11,2 19,2M19,20H5V4H19V20M7,6H17V8H7V6M7,10H17V12H7V10M7,14H12V16H7V14Z"/></svg>
+        Spread Room
+      </button>
+      <button class="nav-btn" data-tab="cosmic-codex">
+        <svg viewBox="0 0 24 24"><path d="M19 2H5C3.9 2 3 2.9 3 4V20C3 21.1 3.9 22 5 22H19C20.1 22 21 21.1 21 20V4C21 2.9 20.1 2 19 2M19 18H5V16H19V18M19 14H5V6H19V14Z"/></svg>
+        Cosmic Codex
+      </button>
+      <button class="nav-btn" data-tab="angelic-sanctuary">
+        <svg viewBox="0 0 24 24"><path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A2,2 0 0,1 14,6A2,2 0 0,1 12,8A2,2 0 0,1 10,6A2,2 0 0,1 12,4M12,18C8.69,18 6,15.31 6,12C6,10.2 6.81,8.59 8.1,7.5C8.97,9.6 11,11 12,11C13,11 15.03,9.6 15.9,7.5C17.19,8.59 18,10.2 18,12C18,15.31 15.31,18 12,18Z"/></svg>
+        Angelic Sanctuary
+      </button>
+      <button class="nav-btn" data-tab="readers-journal">
+        <svg viewBox="0 0 24 24"><path d="M19,3H14V5H19V19H14V21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3M10,21V3H5A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H10M7,6H8V8H7V6M7,10H8V12H7V10M7,14H8V16H7V14M16,17H12V15H16V17M17,13H12V11H17V13M17,9H12V7H17V9Z"/></svg>
+        Reader's Journal
+      </button>
+      <button class="nav-btn" data-tab="beginners-academy">
+        <svg viewBox="0 0 24 24"><path d="M12,3L1,9L12,15L21,10.09V17H23V9L12,3M21,12.5L12,17.41L3,12.5V14.5L12,19.41L21,14.5V12.5Z"/></svg>
+        Beginner's Academy
+      </button>
+    </nav>
+
+    <!-- Main Content Panel -->
+    <main class="content-area">
+      
+      <!-- TAB: SPREAD ROOM -->
+      <section class="tab-content active" id="spread-room">
+        <h2>The Reading Room</h2>
+        <p class="section-subtitle">Focus your energy, state your query, and deal the celestial cards.</p>
+        
+        <div class="glass-panel">
+          <div class="spread-setup">
+            <div class="form-group">
+              <label for="spreadSelect">Choose Tarot Spread Layout</label>
+              <select id="spreadSelect">
+                <option value="single">Single Card Focus (Daily Guidance / Focus)</option>
+                <option value="three-card">Three-Card Progression (Past, Present, Future)</option>
+                <option value="five-card">Five-Card Elemental Spread (Fire, Water, Air, Earth, Spirit)</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="questionInput">State Your Query / Setting Intention</label>
+              <input type="text" id="questionInput" placeholder="What guidance does the cosmos offer me regarding..." />
+            </div>
+          </div>
+          
+          <div style="display:flex; justify-content:center;">
+            <button id="dealBtn" class="btn-primary">
+              <svg style="width:20px; height:20px; fill:currentColor;" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12A10 10 0 0 0 12 22A10 10 0 0 0 22 12A10 10 0 0 0 12 2M12 4A8 8 0 0 1 20 12A8 8 0 0 1 12 20A8 8 0 0 1 4 12A8 8 0 0 1 12 4M12 6A6 6 0 0 0 6 12A6 6 0 0 0 12 18A6 6 0 0 0 18 12A6 6 0 0 0 12 6M12 8A4 4 0 0 1 16 12A4 4 0 0 1 12 16A4 4 0 0 1 8 12A4 4 0 0 1 12 8Z"/></svg>
+              Shuffle & Deal Cards
+            </button>
+          </div>
+        </div>
+
+        <!-- Spread Interactive Board -->
+        <div class="spread-board-wrapper">
+          <div id="boardInstructions" style="text-align:center; color: var(--text-muted);">
+            <svg style="width:60px; height:60px; fill:var(--border-color); margin-bottom:1rem;" viewBox="0 0 24 24"><path d="M19 2H5C3.89 2 3 2.89 3 4V20C3 21.11 3.89 22 5 22H19C20.11 22 21 21.11 21 20V4C21 2.89 20.11 2 19 2M19 20H5V4H19V20Z"/></svg>
+            <p style="font-family: var(--font-mystical); font-size:1.2rem; color:var(--text-main); margin-bottom: 0.5rem;">The Board is Empty</p>
+            <p>Formulate your query above, choose a layout, and click Shuffle & Deal to lay out your cards.</p>
+          </div>
+          
+          <div class="spread-slots-grid" id="spreadSlots"></div>
+        </div>
+
+        <!-- Detailed Reading Display -->
+        <div class="reading-details-area" id="readingDetailsArea" style="display:none;">
+          <h2 style="font-size:1.8rem; margin-top:2rem;">Reading Interpretations</h2>
+          <div class="reading-panel-grid" id="readingDetailsGrid"></div>
+          
+          <!-- Journal Saving Controls -->
+          <div class="glass-panel" style="margin-top:2rem; background:rgba(13,15,35,0.85);">
+            <h3 style="font-family:var(--font-mystical); color:var(--accent-gold); margin-bottom:1rem; font-size:1.2rem; letter-spacing:1px;">Save Reading to Journal</h3>
+            <div class="form-group" style="margin-bottom:1.5rem;">
+              <label for="readingNotes">Your Reflection Notes (highly recommended for learning & growth)</label>
+              <textarea id="readingNotes" rows="4" placeholder="Write down your immediate feelings, how this matches your current situation, or what intuitive symbols stood out to you..."></textarea>
+            </div>
+            <div style="display:flex; justify-content:flex-end;">
+              <button id="saveJournalBtn" class="btn-primary" style="font-size:1rem; padding:0.75rem 1.5rem;">
+                Save Journal Entry
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB: COSMIC CODEX -->
+      <section class="tab-content" id="cosmic-codex">
+        <h2>Cosmic Codex</h2>
+        <p class="section-subtitle">Explore the divine encyclopedia. Filter by elements and search card meanings.</p>
+        
+        <div class="glass-panel">
+          <div class="codex-search">
+            <input type="text" id="codexSearchInput" placeholder="Search cards by name or keywords..." />
+          </div>
+          
+          <div class="codex-filters">
+            <button class="filter-btn active" data-filter="all">All Cards</button>
+            <button class="filter-btn" data-filter="major" style="--btn-color: var(--color-major)">Major Arcana</button>
+            <button class="filter-btn" data-filter="stars" style="--btn-color: var(--color-stars)">Stars (Fire)</button>
+            <button class="filter-btn" data-filter="moons" style="--btn-color: var(--color-moons)">Moons (Water)</button>
+            <button class="filter-btn" data-filter="comets" style="--btn-color: var(--color-comets)">Comets (Air)</button>
+            <button class="filter-btn" data-filter="worlds" style="--btn-color: var(--color-worlds)">Worlds (Earth)</button>
+            <button class="filter-btn" data-filter="angels" style="--btn-color: var(--color-angels)">Angels (Light)</button>
+          </div>
+        </div>
+
+        <div class="codex-grid" id="codexGrid"></div>
+      </section>
+
+      <!-- TAB: ANGELIC SANCTUARY -->
+      <section class="tab-content" id="angelic-sanctuary">
+        <h2>Angelic Sanctuary</h2>
+        <p class="section-subtitle">Connect with divine guides, seek comfort, and align your energy before reading.</p>
+        
+        <div class="sanctuary-grid">
+          <!-- Guided Breathing Grounding -->
+          <div class="glass-panel breathing-box">
+            <h3 style="font-family:var(--font-mystical); color:var(--accent-gold); letter-spacing:1px; margin-bottom:0.5rem; text-align:center;">Grounding Box Breathing</h3>
+            <p style="color:var(--text-muted); text-align:center; font-size:0.9rem; margin-bottom:1rem;">Clear your mind and release stress before drawing. Focus your gaze on the bubble.</p>
+            
+            <div class="bubble-container">
+              <div class="breathing-bubble" id="breathingBubble">
+                <span class="bubble-text" id="bubbleText">Ground</span>
+              </div>
+            </div>
+            
+            <button id="breathingBtn" class="btn-primary" style="font-size:0.95rem; padding:0.6rem 1.5rem;">
+              Start Breathing Guide
+            </button>
+          </div>
+          
+          <!-- Angelic Guidance Draws -->
+          <div class="glass-panel" style="display:flex; flex-direction:column; justify-content:space-between;">
+            <div>
+              <h3 style="font-family:var(--font-mystical); color:var(--accent-gold); letter-spacing:1px; margin-bottom:0.5rem;">Daily Ethereal Guidance</h3>
+              <p style="color:var(--text-muted); font-size:0.9rem; margin-bottom:1.5rem;">Draw an angel message or discover your synchronic angel number of the day.</p>
+              
+              <div class="angelic-card-display" id="angelicCardDisplay">
+                <p style="color:var(--text-muted);">No message drawn yet.</p>
+              </div>
+            </div>
+            
+            <div style="display:flex; gap:10px; margin-top:1.5rem; flex-wrap:wrap;">
+              <button id="drawAngelBtn" class="btn-primary" style="flex:1; font-size:0.9rem; padding:0.75rem 1rem;">
+                Draw Angel Energy
+              </button>
+              <button id="angelNumberBtn" class="btn-secondary" style="flex:1; font-size:0.9rem; justify-content:center; padding:0.75rem 1rem; border-color:var(--accent-gold);">
+                Find Angel Number
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB: READER'S JOURNAL -->
+      <section class="tab-content" id="readers-journal">
+        <h2>Reader's Journal</h2>
+        <p class="section-subtitle">Review your past readings, track synchronicities, and watch your intuition grow.</p>
+        
+        <div id="journalEmptyState" class="glass-panel" style="text-align:center; padding:3rem 1rem;">
+          <svg style="width:50px; height:50px; fill:var(--border-color); margin-bottom:1rem;" viewBox="0 0 24 24"><path d="M19,3H14V5H19V19H14V21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3M10,21V3H5A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H10M7,6H8V8H7V6M7,10H8V12H7V10M7,14H8V16H7V14M16,17H12V15H16V17M17,13H12V11H17V13M17,9H12V7H17V9Z"/></svg>
+          <h3 style="font-family:var(--font-mystical); color:white; font-size:1.1rem; margin-bottom:0.5rem;">Your Journal is Silent</h3>
+          <p style="color:var(--text-muted); max-width:400px; margin:0 auto 1.5rem auto;">Saving entries from the Reading Room will record details here, including cards drawn and reflections.</p>
+        </div>
+        
+        <div class="journal-timeline" id="journalTimeline"></div>
+      </section>
+
+      <!-- TAB: BEGINNER'S ACADEMY -->
+      <section class="tab-content" id="beginners-academy">
+        <h2>Beginner's Academy</h2>
+        <p class="section-subtitle">Essential knowledge and practices for intuitive reading and smart card interpretation.</p>
+        
+        <div class="academy-grid">
+          <div class="academy-card">
+            <h3 class="academy-card-title">✦ 1. Asking Empowering Questions</h3>
+            <p style="margin-bottom:1rem; font-size:0.95rem; color:var(--text-muted);">Tarot reads the energetic path you are currently on. Beginners get the smartest answers by framing inquiries constructively:</p>
+            <ul class="academy-list">
+              <li><strong>Avoid Yes/No:</strong> Instead of "Will I get the promotion?", ask <strong>"What energies should I embody to align with professional advancement?"</strong></li>
+              <li><strong>Focus on Self:</strong> Instead of "Does he love me?", ask <strong>"How can I foster mutual respect and deep connection in my relationship?"</strong></li>
+              <li><strong>Seek Actions:</strong> Instead of "When will my life change?", ask <strong>"What blocks must I clear to step into my highest path?"</strong></li>
+            </ul>
+          </div>
+          
+          <div class="academy-card">
+            <h3 class="academy-card-title">✦ 2. The Language of Suits</h3>
+            <p style="margin-bottom:1rem; font-size:0.95rem; color:var(--text-muted);">The 75 cards are divided into Major Arcana (major life cycles) and 5 suits of Minor Arcana (everyday events):</p>
+            <ul class="academy-list">
+              <li><strong>Major Arcana (Spirit):</strong> Big milestones, karmic patterns, and spiritual changes.</li>
+              <li><strong>Stars (Fire):</strong> Inspiration, ambition, action, creativity, and career drive.</li>
+              <li><strong>Moons (Water):</strong> Feelings, intuition, secrets, relationships, and subconscious processing.</li>
+              <li><strong>Comets (Air):</strong> Intellect, decisions, mental struggles, communication, and truth.</li>
+              <li><strong>Worlds (Earth):</strong> Material comfort, physical body, money, business, and stability.</li>
+              <li><strong>Angels (Light):</strong> Higher spiritual alignment, cosmic advice, and divine protection.</li>
+            </ul>
+          </div>
+          
+          <div class="academy-card">
+            <h3 class="academy-card-title">✦ 3. Deciphering Reversed Cards</h3>
+            <p style="margin-bottom:1rem; font-size:0.95rem; color:var(--text-muted);">When a card appears upside down, don't panic. It is not an evil omen! It signals:</p>
+            <ul class="academy-list">
+              <li><strong>Internal Focus:</strong> The energy of the card is directed inward. E.g., reversed Strength is about building inner confidence quietly.</li>
+              <li><strong>Blocked Energy:</strong> You are experiencing blocks or resisting the natural flow of the card.</li>
+              <li><strong>Excess or Deficit:</strong> The qualities of the card are either overemphasized or lacking.</li>
+              <li><strong>Delays:</strong> Things are moving, but require patient preparation first.</li>
+            </ul>
+          </div>
+
+          <div class="academy-card">
+            <h3 class="academy-card-title">✦ 4. Developing Your Intuition</h3>
+            <p style="margin-bottom:1rem; font-size:0.95rem; color:var(--text-muted);">To think smarter and read like a professional, integrate these intuitive habits:</p>
+            <ul class="academy-list">
+              <li><strong>Visual First:</strong> Look at the card symbol. What feeling, memory, or word pops into your head before reading the meaning?</li>
+              <li><strong>Storytelling:</strong> In spread layouts, read cards together as a story. Connect the card in 'Past' to the card in 'Present'.</li>
+              <li><strong>Reflective Journaling:</strong> Reviewing your journal logs weeks later builds a personal lexicon with the cards.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+    </main>
   </div>
 
-  <!-- Angelic Energy Reading Section -->
-  <div class="section">
-    <button id="angelicBtn">Receive Angelic Energy Reading</button>
-    <div id="angelicResult" class="result-box"></div>
+  <!-- Detail Modal -->
+  <div class="modal-overlay" id="cardDetailModal">
+    <div class="modal-container">
+      <button class="modal-close" id="modalCloseBtn">&times;</button>
+      <div class="modal-grid">
+        <!-- Rendered Card Graphic -->
+        <div id="modalCardArt" class="modal-card-art">
+          <!-- Dynamic SVG content -->
+        </div>
+        
+        <!-- Text details -->
+        <div class="modal-content-details">
+          <div class="modal-title-row">
+            <h3 id="modalCardName">The Starseed</h3>
+            <div class="modal-subtitle-row">
+              <span id="modalCardSuit">Suit: Major</span>
+              <span>•</span>
+              <span id="modalCardElement">Element: Spirit</span>
+            </div>
+          </div>
+          
+          <div>
+            <div class="modal-section-title">Keywords</div>
+            <p id="modalCardKeywords" style="color: var(--accent-gold); font-weight:500;">Beginnings • Trust • Adventure</p>
+          </div>
+          
+          <div>
+            <div class="modal-section-title">Upright Meaning</div>
+            <p id="modalCardUpright" class="modal-desc-text">Meaning description...</p>
+          </div>
+          
+          <div>
+            <div class="modal-section-title">Reversed Meaning</div>
+            <p id="modalCardReversed" class="modal-desc-text">Reversed description...</p>
+          </div>
+          
+          <div>
+            <div class="modal-section-title">Beginner Guidance (Advice)</div>
+            <div class="modal-advice-grid">
+              <div class="advice-block">
+                <div class="advice-block-title">Love & Connection</div>
+                <p id="modalAdviceLove" class="modal-desc-text" style="font-size:0.85rem; color:var(--text-muted);">Advice text...</p>
+              </div>
+              <div class="advice-block">
+                <div class="advice-block-title">Career & Growth</div>
+                <p id="modalAdviceCareer" class="modal-desc-text" style="font-size:0.85rem; color:var(--text-muted);">Advice text...</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <script>
-    // Cosmic Tarot Cards Array (75 Cards: 25 Major Arcana + 50 Minor Arcana)
-    // For brevity, the card data below includes full entries for the 25 Major Arcana and representative placeholders for the 50 Minor Arcana.
+    // --- DATABASE ---
     const cosmicCards = [
       // Major Arcana (25 cards)
-      { name: "The Starseed", description: "A new journey begins with wonder and divine trust.", image: "images/tarot/the_starseed.jpg" },
-      { name: "The Magician", description: "Manifest cosmic energy; you have all the tools to shape your world.", image: "images/tarot/the_magician.jpg" },
-      { name: "The High Priestess", description: "Trust your intuition as secrets of the universe unfold.", image: "images/tarot/the_high_priestess.jpg" },
-      { name: "The Empress", description: "Abundance flows from the nurturing cosmic mother.", image: "images/tarot/the_empress.jpg" },
-      { name: "The Emperor", description: "Divine authority and stability create a secure foundation.", image: "images/tarot/the_emperor.jpg" },
-      { name: "The Hierophant", description: "Sacred traditions and spiritual guidance unite earth and heaven.", image: "images/tarot/the_hierophant.jpg" },
-      { name: "The Lovers", description: "Cosmic union and higher choices bring profound harmony.", image: "images/tarot/the_lovers.jpg" },
-      { name: "The Chariot", description: "Focused willpower and determination drive you forward.", image: "images/tarot/the_chariot.jpg" },
-      { name: "Strength", description: "Inner courage and compassion guide you through challenges.", image: "images/tarot/strength.jpg" },
-      { name: "The Hermit", description: "Seek wisdom in solitude before the next step of your journey.", image: "images/tarot/the_hermit.jpg" },
-      { name: "Wheel of Fortune", description: "Cycles of fate and destiny turn under cosmic forces.", image: "images/tarot/wheel_of_fortune.jpg" },
-      { name: "Justice", description: "Karma and fairness balance your actions with the universe.", image: "images/tarot/justice.jpg" },
-      { name: "The Hanged Man", description: "A pause and sacrifice reveal a new perspective.", image: "images/tarot/the_hanged_man.jpg" },
-      { name: "Transformation", description: "Endings clear the way for powerful rebirth.", image: "images/tarot/transformation.jpg" },
-      { name: "Temperance", description: "Blend opposites into harmony for healing and balance.", image: "images/tarot/temperance.jpg" },
-      { name: "The Shadow", description: "Face your inner darkness to liberate your true self.", image: "images/tarot/the_shadow.jpg" },
-      { name: "The Tower", description: "Sudden upheaval destroys false foundations for truth to emerge.", image: "images/tarot/the_tower.jpg" },
-      { name: "The Star", description: "Hope, inspiration, and healing radiate from divine light.", image: "images/tarot/the_star.jpg" },
-      { name: "The Moon", description: "Illusions and subconscious fears call for inner trust.", image: "images/tarot/the_moon.jpg" },
-      { name: "The Sun", description: "Joy and vitality burst forth in radiant success.", image: "images/tarot/the_sun.jpg" },
-      { name: "Awakening", description: "A profound inner calling transforms you from within.", image: "images/tarot/awakening.jpg" },
-      { name: "The Universe", description: "Completion and oneness with the cosmos bring fulfillment.", image: "images/tarot/the_universe.jpg" },
-      { name: "Ascension", description: "Rise to higher consciousness and embrace divine light.", image: "images/tarot/ascension.jpg" },
-      { name: "The Guardian Angel", description: "Heavenly protection surrounds you on every step.", image: "images/tarot/the_guardian_angel.jpg" },
-      { name: "The Source", description: "Return to oneness with infinite cosmic consciousness.", image: "images/tarot/the_source.jpg" },
-      // Minor Arcana (50 cards: 10 cards per suit; using representative placeholders)
-      // Suit: Stars
-      { name: "Ace of Stars", description: "A spark of inspiration ignites new creative energy.", image: "images/tarot/ace_of_stars.jpg" },
-      { name: "Two of Stars", description: "Balance and planning under starlight guide your dreams.", image: "images/tarot/two_of_stars.jpg" },
-      { name: "Three of Stars", description: "Early achievements signal that your efforts are paying off.", image: "images/tarot/three_of_stars.jpg" },
-      { name: "Four of Stars", description: "Celebrate stability and milestones achieved on your journey.", image: "images/tarot/four_of_stars.jpg" },
-      { name: "Five of Stars", description: "Conflict and challenge test your resolve and inner strength.", image: "images/tarot/five_of_stars.jpg" },
-      { name: "Six of Stars", description: "Triumph follows adversity as you rise above challenges.", image: "images/tarot/six_of_stars.jpg" },
-      { name: "Seven of Stars", description: "Stand firm with inner light when facing cosmic trials.", image: "images/tarot/seven_of_stars.jpg" },
-      { name: "Eight of Stars", description: "Swift momentum propels you forward with vibrant energy.", image: "images/tarot/eight_of_stars.jpg" },
-      { name: "Nine of Stars", description: "Resilience carries you near the fulfillment of your dreams.", image: "images/tarot/nine_of_stars.jpg" },
-      { name: "Ten of Stars", description: "Overwhelming responsibilities weigh you down—seek relief.", image: "images/tarot/ten_of_stars.jpg" },
-      // Suit: Moons
-      { name: "Ace of Moons", description: "A surge of emotional insight opens new realms of possibility.", image: "images/tarot/ace_of_moons.jpg" },
-      { name: "Two of Moons", description: "Balanced emotions guide your choices with gentle wisdom.", image: "images/tarot/two_of_moons.jpg" },
-      { name: "Three of Moons", description: "Joyful celebrations bring creative energy and friendship.", image: "images/tarot/three_of_moons.jpg" },
-      { name: "Four of Moons", description: "Apathy or missed opportunities call for renewed engagement.", image: "images/tarot/four_of_moons.jpg" },
-      { name: "Five of Moons", description: "Sorrow and loss suggest healing is needed from emotional wounds.", image: "images/tarot/five_of_moons.jpg" },
-      { name: "Six of Moons", description: "Nostalgia and kind memories bring gentle healing.", image: "images/tarot/six_of_moons.jpg" },
-      { name: "Seven of Moons", description: "Illusions cloud judgment—seek clarity from within.", image: "images/tarot/seven_of_moons.jpg" },
-      { name: "Eight of Moons", description: "A quest for deeper meaning calls you away from the familiar.", image: "images/tarot/eight_of_moons.jpg" },
-      { name: "Nine of Moons", description: "Gratitude and fulfillment arise when inner desires are met.", image: "images/tarot/nine_of_moons.jpg" },
-      { name: "Ten of Moons", description: "Emotional fulfillment and joyful connections abound.", image: "images/tarot/ten_of_moons.jpg" },
-      // Suit: Comets
-      { name: "Ace of Comets", description: "A breakthrough idea pierces through the cosmic night.", image: "images/tarot/ace_of_comets.jpg" },
-      { name: "Two of Comets", description: "Indecision and blockages require balance and reflection.", image: "images/tarot/two_of_comets.jpg" },
-      { name: "Three of Comets", description: "Heartache and release open the door to emotional healing.", image: "images/tarot/three_of_comets.jpg" },
-      { name: "Four of Comets", description: "Rest and recovery are needed before moving forward.", image: "images/tarot/four_of_comets.jpg" },
-      { name: "Five of Comets", description: "Conflict teaches lessons—embrace growth through challenge.", image: "images/tarot/five_of_comets.jpg" },
-      { name: "Six of Comets", description: "Transition brings hope and the promise of new beginnings.", image: "images/tarot/six_of_comets.jpg" },
-      { name: "Seven of Comets", description: "Hidden deceptions urge caution and truth-seeking.", image: "images/tarot/seven_of_comets.jpg" },
-      { name: "Eight of Comets", description: "Restrictions feel heavy—summon the courage to break free.", image: "images/tarot/eight_of_comets.jpg" },
-      { name: "Nine of Comets", description: "Anxiety calls for healing and solace in divine support.", image: "images/tarot/nine_of_comets.jpg" },
-      { name: "Ten of Comets", description: "The end of a cycle heralds the promise of a new dawn.", image: "images/tarot/ten_of_comets.jpg" },
-      // Suit: Worlds
-      { name: "Ace of Worlds", description: "A seed of new opportunity in the material realm is planted.", image: "images/tarot/ace_of_worlds.jpg" },
-      { name: "Two of Worlds", description: "Balancing responsibilities leads to harmonious progress.", image: "images/tarot/two_of_worlds.jpg" },
-      { name: "Three of Worlds", description: "Collaboration builds a future based on shared vision.", image: "images/tarot/three_of_worlds.jpg" },
-      { name: "Four of Worlds", description: "Holding on too tightly may block the flow of abundance.", image: "images/tarot/four_of_worlds.jpg" },
-      { name: "Five of Worlds", description: "Temporary hardships call for support and resilience.", image: "images/tarot/five_of_worlds.jpg" },
-      { name: "Six of Worlds", description: "Generosity creates a cycle of positive exchange.", image: "images/tarot/six_of_worlds.jpg" },
-      { name: "Seven of Worlds", description: "Patience is required as rewards slowly come to fruition.", image: "images/tarot/seven_of_worlds.jpg" },
-      { name: "Eight of Worlds", description: "Diligence and skill lead to mastery and success.", image: "images/tarot/eight_of_worlds.jpg" },
-      { name: "Nine of Worlds", description: "Achievement and luxury are the fruits of your labor.", image: "images/tarot/nine_of_worlds.jpg" },
-      { name: "Ten of Worlds", description: "Legacy and lasting security manifest in your material life.", image: "images/tarot/ten_of_worlds.jpg" },
-      // Suit: Angels
-      { name: "Ace of Angels", description: "A divine message initiates new spiritual insights.", image: "images/tarot/ace_of_angels.jpg" },
-      { name: "Two of Angels", description: "Sacred partnerships guided by heaven lead to clarity.", image: "images/tarot/two_of_angels.jpg" },
-      { name: "Three of Angels", description: "Growth and shared blessings uplift your spirit.", image: "images/tarot/three_of_angels.jpg" },
-      { name: "Four of Angels", description: "Stability and prayer create a secure haven of faith.", image: "images/tarot/four_of_angels.jpg" },
-      { name: "Five of Angels", description: "Challenges test your trust in divine guidance.", image: "images/tarot/five_of_angels.jpg" },
-      { name: "Six of Angels", description: "Harmony and resolution are restored by loving energies.", image: "images/tarot/six_of_angels.jpg" },
-      { name: "Seven of Angels", description: "Unrevealed truths urge patience and trust in the unseen.", image: "images/tarot/seven_of_angels.jpg" },
-      { name: "Eight of Angels", description: "Empowerment and hope flow as divine strength uplifts you.", image: "images/tarot/eight_of_angels.jpg" },
-      { name: "Nine of Angels", description: "Spiritual fulfillment blossoms from your deep connection with the divine.", image: "images/tarot/nine_of_angels.jpg" },
-      { name: "Ten of Angels", description: "Completion and transcendence bring you into divine unity.", image: "images/tarot/ten_of_angels.jpg" }
+      { id: "starseed", name: "The Starseed", suit: "major", element: "Spirit", keywords: ["Beginnings", "Innocence", "Spontaneity"], upright: "A call to embark on a new spiritual adventure with divine trust and curiosity. Step into the unknown without fear.", reversed: "Recklessness, fear of change, or hesitation. You might be ignoring a cosmic call to grow.", advice: { general: "Embrace the unknown and trust that the universe has a plan.", love: "Open your heart to a fresh start. Leave past relationship baggage behind.", career: "A new project or job opportunity awaits. Take a calculated leap of faith." } },
+      { id: "magician", name: "The Magician", suit: "major", element: "Spirit", keywords: ["Manifestation", "Willpower", "Resourcefulness"], upright: "You possess all the tools and cosmic power to shape your reality. Focus your intentions and take action.", reversed: "Untapped potential, manipulative energy, illusions, or misdirection.", advice: { general: "Align your will with your goals. Everything you need is already in front of you.", love: "Be clear and honest about your intentions. Your charisma is highly magnetic.", career: "Apply your skills with confidence. A great time to launch a business or project." } },
+      { id: "high_priestess", name: "The High Priestess", suit: "major", element: "Spirit", keywords: ["Intuition", "Subconscious", "Divine Secrets"], upright: "Trust your inner voice and allow the secrets of the universe to unfold in quiet contemplation.", reversed: "Ignoring your gut feelings, superficiality, or hidden agendas revealed.", advice: { general: "Look past surface situations; the answers lie in your dreams and intuition.", love: "Patience in romance is key. Do not rush or force a connection.", career: "Keep your plans private for now. Trust your instinct when dealing with partners." } },
+      { id: "empress", name: "The Empress", suit: "major", element: "Spirit", keywords: ["Abundance", "Creativity", "Nurturing"], upright: "Abundance and creativity flow. You are surrounded by growth, beauty, and nurturing mother energy.", reversed: "Creative blockages, smothering behavior, dependency, or lack of growth.", advice: { general: "Connect with nature, nurture yourself, and let your creative endeavors bloom.", love: "Express love openly. A highly fertile time for relationships and emotional growth.", career: "Your ideas are highly productive. Focus on collaboration and organic growth." } },
+      { id: "emperor", name: "The Emperor", suit: "major", element: "Spirit", keywords: ["Authority", "Structure", "Stability"], upright: "Divine authority and stability. Establish order, construct clear boundaries, and claim your power.", reversed: "Control issues, tyranny, inflexibility, or lack of discipline.", advice: { general: "Create structure in your daily life. Organize your ideas into concrete plans.", love: "Define clear boundaries and goals. Emotional maturity is highly attractive.", career: "Take charge of your workspace. Establish authority and leadership." } },
+      { id: "hierophant", name: "The Hierophant", suit: "major", element: "Spirit", keywords: ["Tradition", "Spiritual Wisdom", "Mentorship"], upright: "Sacred traditions, spiritual guidance, and education. Align with wisdom from mentors or institutions.", reversed: "Rigid dogmas, rebellion, seeking non-traditional paths, or finding your own truth.", advice: { general: "Seek knowledge from verified sources. Study ancient traditions or philosophy.", love: "Align your relationship goals with core values. Respect and commitment rule.", career: "A mentor can help you navigate corporate structures. Follow established procedures." } },
+      { id: "lovers", name: "The Lovers", suit: "major", element: "Spirit", keywords: ["Alignment", "Harmony", "Choices"], upright: "Cosmic union, deep harmony, and critical life choices that must align with your true values.", reversed: "Disharmony, misalignment, internal conflict, or struggling with a hard choice.", advice: { general: "Make decisions based on your personal values, not just convenience or pressure.", love: "Foster honest communication and mutual respect. A time of magnetic attraction.", career: "Seek partnerships that share your long-term goals. Cooperate for success." } },
+      { id: "chariot", name: "The Chariot", suit: "major", element: "Spirit", keywords: ["Willpower", "Determination", "Victory"], opacity: 1, upright: "Harness opposing forces and charge forward with unwavering focus. You are destined to win.", reversed: "Lack of direction, loss of control, or hitting a major obstacle due to impulsiveness.", advice: { general: "Stay disciplined. Control your emotions and direct your energy towards one goal.", love: "Be clear about what you want. Drive and focus can win over obstacles.", career: "Push through barriers. Your hard work and focus are leading you to triumph." } },
+      { id: "strength", name: "Strength", suit: "major", element: "Spirit", keywords: ["Courage", "Patience", "Inner Fortitude"], upright: "Quiet fortitude and compassionate stamina. Tame the wildest challenges through gentle patience.", reversed: "Self-doubt, weakness, raw anger, or feelings of inadequacy.", advice: { general: "Face challenges with kindness and patience. Inner calm is your greatest power.", love: "Be patient with your partner's flaws. Soft persuasion is stronger than force.", career: "Remain calm under work pressure. Your quiet confidence will win the day." } },
+      { id: "hermit", name: "The Hermit", suit: "major", element: "Spirit", keywords: ["Solitude", "Soul-searching", "Inner Light"], upright: "Seek wisdom in quiet solitude. Look inward and let your inner guide illuminate the path.", reversed: "Isolation, loneliness, paranoia, or refusal to reflect on lessons.", advice: { general: "Take time out for reflection. A period of meditation and journaling is needed.", love: "Focus on loving yourself before seeking a partner. Contemplate your patterns.", career: "Reflect on your career goals in quiet. Avoid impulsive financial decisions." } },
+      { id: "wheel_fortune", name: "Wheel of Fortune", suit: "major", element: "Spirit", keywords: ["Destiny", "Cycles", "Pivotal Change"], upright: "Cycles of destiny and good luck turn in your favor. Adapt to the changing tides.", reversed: "Bad luck, resistance to change, or repeating negative cycles.", advice: { general: "Understand that both highs and lows are temporary. Go with the cosmic flow.", love: "A fateful meeting is possible, or a shift in current relationship patterns.", career: "Prepare for unexpected opportunities. Be flexible and ready to pivot." } },
+      { id: "justice", name: "Justice", suit: "major", element: "Spirit", keywords: ["Fairness", "Truth", "Karma"], upright: "Truth will prevail. Your actions will return to you in perfect balance. Choose honesty.", reversed: "Dishonesty, unfairness, bias, or refusing accountability.", advice: { general: "Be honest in all dealings. Weigh all facts carefully before deciding.", love: "Treat your partner as an equal. Resolve conflicts with fair conversation.", career: "Contracts will settle in a fair manner if you behave with integrity." } },
+      { id: "hanged_man", name: "The Hanged Man", suit: "major", element: "Spirit", keywords: ["Surrender", "New Perspective", "Pausing"], upright: "A pause and sacrifice reveal a new perspective. Release control and let things unfold.", reversed: "Stagnation, useless sacrifice, delay, or resisting looking at things differently.", advice: { general: "Release your grip on the outcome. Let go and observe with curiosity.", love: "Give your relationship some breathing room. Avoid rushing milestones.", career: "Look at your professional problems from a different angle. A pause is useful." } },
+      { id: "transformation", name: "Transformation", suit: "major", element: "Spirit", keywords: ["Endings", "Rebirth", "Transition"], upright: "Endings clear the way for powerful rebirth. Let go of what is dead to welcome the new.", reversed: "Fear of letting go, resisting change, or staying in decaying situations.", advice: { general: "Accept that endings are natural. Welcome the blank slate that lies ahead.", love: "Let go of dead relationship patterns. Allow new emotional growth.", career: "Time to leave a stagnant job or career path. Welcome the transition." } },
+      { id: "temperance", name: "Temperance", suit: "major", element: "Spirit", keywords: ["Balance", "Moderation", "Healing"], upright: "Blend opposites into harmony. Healing, moderation, and peace emerge from cooperation.", reversed: "Imbalance, excess, self-indulgence, or conflicting interest causing strain.", advice: { general: "Find middle ground. Avoid extremes in diet, emotions, or lifestyle.", love: "A harmonious relationship built on patience, compromise, and mutual healing.", career: "Balance work and personal life. Resolve professional conflicts with diplomacy." } },
+      { id: "shadow", name: "The Shadow", suit: "major", element: "Spirit", keywords: ["Attachment", "Illusion", "Shadow Work"], upright: "Face your inner darkness, attachments, or fears that keep you bound. True freedom awaits.", reversed: "Release of chains, conquering addiction, confronting fear, and self-liberation.", advice: { general: "Acknowledge negative habits or codependency. Do the necessary shadow work.", love: "Beware of possessive dynamics or obsessiveness in romance. Set boundaries.", career: "Are you staying in a job only for artificial security? Face your career fears." } },
+      { id: "tower", name: "The Tower", suit: "major", element: "Spirit", keywords: ["Upheaval", "Revelation", "Breakthrough"], upright: "Sudden upheaval destroys false foundations so absolute truth can emerge. Trust the process.", reversed: "Avoiding a crisis, narrow escape, or quietly rebuilding after a shock.", advice: { general: "Let the old structures fall. They were built on false pretenses anyway.", love: "A sudden revelation shifts your view on love. Face the truth courageously.", career: "Disruption in work paths can force you to find a more stable, honest career." } },
+      { id: "star", name: "The Star", suit: "major", element: "Spirit", keywords: ["Hope", "Healing", "Serenity"], upright: "Hope, inspiration, and healing radiate from divine light. You are on the right path.", reversed: "Lack of faith, discouragement, feeling lost, or creative dryness.", advice: { general: "Have faith. The universe is guiding and healing your wounds.", love: "Open your heart to hope. Trust that you are worthy of pure, healthy love.", career: "Inspiration is returning. Trust your long-term dreams and career vision." } },
+      { id: "moon", name: "The Moon", suit: "major", element: "Spirit", keywords: ["Illusion", "Subconscious", "Intuition"], upright: "Illusions and subconscious fears call for inner trust. Not all is as it seems.", reversed: "Clarity emerging, releasing fears, self-deception exposed, or dreams decoded.", advice: { general: "Trust your gut. Do not make major decisions based on partial information.", love: "Beware of misinterpreting your partner's signals. Let fears calm down.", career: "Look beneath the surface of business deals. Uncover hidden details first." } },
+      { id: "sun", name: "The Sun", suit: "major", element: "Spirit", keywords: ["Joy", "Success", "Vitality"], upright: "Joy, success, and vitality burst forth in radiant warmth. A period of absolute clarity.", reversed: "Temporary cloudiness, lack of enthusiasm, minor delays, or ego issues.", advice: { general: "Celebrate your achievements. Share your warmth and positivity with others.", love: "Warm, open, and transparent love. A happy connection filled with laughter.", career: "Success in your undertakings. Creative energy and leadership are recognized." } },
+      { id: "awakening", name: "Awakening", suit: "major", element: "Spirit", keywords: ["Absolution", "Calling", "Transformation"], upright: "A profound inner calling transforms you. Absolve past mistakes and step up.", reversed: "Self-doubt, ignoring a calling, or harsh self-criticism delaying growth.", advice: { general: "Evaluate your life and make the big adjustments. A major calling awaits.", love: "A moment of truth in your love life. Forgive the past and move forward.", career: "Time to align your work with a higher calling. Embrace your true path." } },
+      { id: "universe", name: "The Universe", suit: "major", element: "Spirit", keywords: ["Completion", "Integration", "Wholeness"], upright: "Completion and oneness with the cosmos bring ultimate fulfillment. A cycle closes beautifully.", reversed: "Unfinished tasks, delays in completion, or cutting corners to finish.", advice: { general: "Celebrate how far you have come. Take time to integrate your lessons.", love: "A relationship achieves a beautiful milestone. Emotional wholeness.", career: "Successfully closing a project or graduating. The start of global recognition." } },
+      { id: "ascension", name: "Ascension", suit: "major", element: "Spirit", keywords: ["Consciousness", "Evolution", "Transcendence"], upright: "Rise to higher consciousness and embrace divine light. Your perspective broadens.", reversed: "Ego traps, feeling ungrounded, or resisting spiritual evolution.", advice: { general: "Connect with your higher self. Look at situations from a cosmic perspective.", love: "A relationship evolves into a spiritual partnership. Transcend petty arguments.", career: "Focus on values and ethics. Lead by positive example in your career." } },
+      { id: "guardian_angel", name: "The Guardian Angel", suit: "major", element: "Spirit", keywords: ["Protection", "Comfort", "Guidance"], upright: "Heavenly protection surrounds you. Comfort and silent support are ever-present.", reversed: "Feeling disconnected from guides, ignoring signs, or blocking helper spirits.", advice: { general: "Rest assured that you are safe. Ask your angels for signs and listen.", love: "A safe, protective, and comforting romance. Trust the healing energy.", career: "Help is available. Do not hesitate to accept assistance or support." } },
+      { id: "source", name: "The Source", suit: "major", element: "Spirit", keywords: ["Oneness", "Infinite", "Divine Spark"], upright: "Return to oneness with infinite cosmic consciousness. All answers lie in source energy.", reversed: "Spiritual disconnect, feeling empty, or over-rationalizing.", advice: { general: "Spend time in silent meditation to plug back into source light.", love: "Recognize the divine spark in your partner. Cultivate unconditional love.", career: "Let inspiration flow naturally. Do not force creation; align with it." } },
+
+      // Stars Suit (Fire - Action/Inspiration)
+      { id: "ace_stars", name: "Ace of Stars", suit: "stars", element: "Fire", keywords: ["Inspiration", "Opportunity", "Spark"], upright: "A brilliant spark of inspiration ignites new creative or career opportunities.", reversed: "Lack of direction, wasted energy, or hesitation to act.", advice: { general: "Seize the spark. Take action on your new ideas immediately.", love: "A passionate new spark is beginning. Be open to excitement.", career: "A fantastic time to start a project or apply for a creative job." } },
+      { id: "two_stars", name: "Two of Stars", suit: "stars", element: "Fire", keywords: ["Planning", "Progress", "Decisions"], upright: "Planning under starlight. You hold power in your hands; decide your path.", reversed: "Fear of the unknown, lack of planning, or stagnation.", advice: { general: "Look at the big picture. Plan before you leap, but don't fear choices.", love: "Discussing long-term plans with a partner, or choosing between paths.", career: "A time to look globally. Expand your network and choose a direction." } },
+      { id: "three_stars", name: "Three of Stars", suit: "stars", element: "Fire", keywords: ["Expansion", "Foresight", "Leadership"], upright: "Your efforts are paying off. Stand tall and watch your ships come in.", reversed: "Delays, lack of cooperation, or disappointment in results.", advice: { general: "Be patient but keep looking forward. Your hard work is manifesting.", love: "Growing together. Setting goals and expanding emotional horizons.", career: "Business expansion. Good results from previous investments." } },
+      { id: "four_stars", name: "Four of Stars", suit: "stars", element: "Fire", keywords: ["Celebration", "Home", "Harmony"], upright: "Celebrate stability and milestones. A joyful homecoming or safe haven.", reversed: "Inner instability, domestic tension, or quiet celebration.", advice: { general: "Take time to relax and celebrate with loved ones. You've earned it.", love: "Strong commitment, marriage, or moving in together. Joyful harmony.", career: "Successful completion of a project phase. Celebrate with your team." } },
+      { id: "five_stars", name: "Five of Stars", suit: "stars", element: "Fire", keywords: ["Conflict", "Competition", "Tension"], upright: "Clashing opinions or trials. Stand firm, but pick your battles wisely.", reversed: "Avoiding conflict, resolving arguments, or mental exhaustion.", advice: { general: "Express your views, but avoid useless arguments. Focus on compromise.", love: "Playful bickering or real tension. Don't let minor issues blow up.", career: "A competitive workplace. Stand out through skill, not gossip." } },
+      { id: "six_stars", name: "Six of Stars", suit: "stars", element: "Fire", keywords: ["Victory", "Acclaim", "Success"], upright: "Triumph follows adversity. Your skills are publicly recognized.", reversed: "Ego problems, fall from grace, or delayed recognition.", advice: { general: "Accept praise with grace and humility. Keep moving forward.", love: "Feeling appreciated and successful in your relationship.", career: "Promotion, award, or public credit for your contribution." } },
+      { id: "seven_stars", name: "Seven of Stars", suit: "stars", element: "Fire", keywords: ["Defensiveness", "Courage", "Resilience"], upright: "Stand firm with inner light when facing challenges. You have the high ground.", reversed: "Overwhelmed, giving up, or constant defensiveness.", advice: { general: "Do not compromise your values. Protect your energy and boundaries.", love: "Stand up for your relationship, or set firm personal boundaries.", career: "Defend your ideas or projects against critics. You have the facts." } },
+      { id: "eight_stars", name: "Eight of Stars", suit: "stars", element: "Fire", keywords: ["Speed", "Movement", "Alignment"], upright: "Swift momentum propels you forward. Incoming messages and quick progress.", reversed: "Delays, panic, or scattered energy causing chaos.", advice: { general: "Ride the wave of fast-moving energy. Stay focused to avoid mistakes.", love: "Rapid developments in love. Quick messages or a sudden romance.", career: "A busy, fast-paced work period. Make decisions quickly but carefully." } },
+      { id: "nine_stars", name: "Nine of Stars", suit: "stars", element: "Fire", keywords: ["Stamina", "Resilience", "Boundary"], upright: "You are weary but the goal is close. Muster your stamina and guard your energy.", reversed: "Giving up right before the finish, paranoia, or weak boundaries.", advice: { general: "Do not quit now. You are stronger than you think. Protect your progress.", love: "Past hurts make you guarded. Heal, but keep healthy boundaries.", career: "Stay strong through the last phase of a hard project. Victory is near." } },
+      { id: "ten_stars", name: "Ten of Stars", suit: "stars", element: "Fire", keywords: ["Burden", "Burnout", "Stress"], upright: "Overwhelming responsibilities weigh you down. Time to delegate or let go.", reversed: "Relieving pressure, collapse, or refusing to ask for help.", advice: { general: "Identify what is your responsibility and what isn't. Let go of extra loads.", love: "Feeling carrying the weight of the relationship alone. Communicate.", career: "Burnout alert. Delegate tasks and set limits on overtime." } },
+
+      // Moons Suit (Water - Emotion/Intuition)
+      { id: "ace_moons", name: "Ace of Moons", suit: "moons", element: "Water", keywords: ["New Love", "Emotions", "Intuition"], upright: "A surge of emotional insight or connection. Your heart is opening.", reversed: "Blocked feelings, unrequited love, or emotional instability.", advice: { general: "Listen to your feelings. Allow yourself to feel and express love.", love: "A beautiful new romantic connection or deep renewal in current love.", career: "Follow a career path that aligns with your emotional values." } },
+      { id: "two_moons", name: "Two of Moons", suit: "moons", element: "Water", keywords: ["Partnership", "Connection", "Balance"], upright: "Balanced emotions and deep attraction. A harmonious connection based on respect.", reversed: "Miscommunication, broken trust, or connection issues.", advice: { general: "Focus on mutual support and cooperation in all relationships.", love: "Deep soul connection, mutual love, and emotional alignment.", career: "A successful contract, partnership, or collaboration." } },
+      { id: "three_moons", name: "Three of Moons", suit: "moons", element: "Water", keywords: ["Friendship", "Community", "Celebration"], upright: "Joyful celebrations with your support circle. Express gratitude.", reversed: "Isolation, gossiping, or overindulging.", advice: { general: "Spend quality time with friends. Celebrate milestones together.", love: "A happy social setting with your partner, or meeting love through friends.", career: "Team success. Celebrate the team's wins and build camaraderie." } },
+      { id: "four_moons", name: "Four of Moons", suit: "moons", element: "Water", keywords: ["Apathy", "Refusal", "Discontent"], upright: "Apathy or discontent. You are ignoring gifts the universe is offering.", reversed: "Reawakening, noticing opportunities, or self-reflection.", advice: { general: "Look around you. Break out of boredom by accepting new options.", love: "Feeling stagnant in romance. Look at your patterns.", career: "Are you ignoring a new path out of comfort? Re-evaluate options." } },
+      { id: "five_moons", name: "Five of Moons", suit: "moons", element: "Water", keywords: ["Loss", "Regret", "Grief"], upright: "Focusing on what was lost rather than blessings that remain. Heal.", reversed: "Acceptance, moving forward, or healing old emotional wounds.", advice: { general: "Allow yourself to grieve, but remember to turn around and see the cups still full.", love: "Regrets in love. Forgive yourself and your partner to heal.", career: "Disappointment in business. Learn from failures and look for new paths." } },
+      { id: "six_moons", name: "Six of Moons", suit: "moons", element: "Water", keywords: ["Nostalgia", "Innocence", "Reconnection"], upright: "Nostalgic memories bring gentle healing. Reconnection with the past.", reversed: "Living in the past, childishness, or outgrowing old habits.", advice: { general: "Draw joy from sweet memories, but remain grounded in the present.", love: "An ex returns, or you share sweet, innocent moments of connection.", career: "Revisit old business contacts or return to an old career passion." } },
+      { id: "seven_moons", name: "Seven of Moons", suit: "moons", element: "Water", keywords: ["Choices", "Illusion", "Fantasy"], upright: "Many choices before you, but some are illusions. Seek clarity.", reversed: "Decision-making, escaping confusion, or finding truth.", advice: { general: "Focus on real options. Avoid getting lost in daydreaming.", love: "Lust or illusions about a partner. See them for who they truly are.", career: "Many business ideas. Filter out unrealistic projects." } },
+      { id: "eight_moons", name: "Eight of Moons", suit: "moons", element: "Water", keywords: ["Walking Away", "Transition", "Seeking Meaning"], upright: "Walking away from what no longer serves you to seek deeper spiritual meaning.", reversed: "Fear of moving on, staying in toxic situations, or wandering aimlessly.", advice: { general: "Leave empty situations. Trust that there is deeper fulfillment ahead.", love: "Leaving a dead-end relationship, or taking a break to find yourself.", career: "Walking away from a job that pays well but drains your soul." } },
+      { id: "nine_moons", name: "Nine of Moons", suit: "moons", element: "Water", keywords: ["Contentment", "Wishes", "Satisfaction"], upright: "Your wish is granted. Deep satisfaction, emotional security, and joy.", reversed: "Materialism, unsatisfied desires, or superficial happiness.", advice: { general: "Appreciate your blessings. You are in a comfortable place.", love: "Emotional fulfillment and feeling happy with your romantic state.", career: "Success, comfort, and achieving a satisfying business position." } },
+      { id: "ten_moons", name: "Ten of Moons", suit: "moons", element: "Water", keywords: ["Family Harmony", "Joy", "Bliss"], upright: "Emotional fulfillment, loving relationships, and domestic bliss. Wholeness.", reversed: "Broken home, family disputes, or unfulfilled dreams.", advice: { general: "Cultivate peace in your home. Cherish your closest bonds.", love: "Deeply happy, committed relationship or family life.", career: "Aligning your career with family and personal happiness." } },
+
+      // Comets Suit (Air - Thought/Intellect/Challenge)
+      { id: "ace_comets", name: "Ace of Comets", suit: "comets", element: "Air", keywords: ["Clarity", "Breakthrough", "Mental Power"], upright: "A sudden realization or absolute truth cuts through confusion.", reversed: "Chaos, mental fog, or destructive words causing damage.", advice: { general: "Speak the truth with clarity. Face issues with logic.", love: "A breakthrough conversation. Honest, clear communication.", career: "A brilliant new strategy or contract. Sharp focus wins." } },
+      { id: "two_comets", name: "Two of Comets", suit: "comets", element: "Air", keywords: ["Stalemate", "Blocked Choice", "Avoidance"], upright: "A difficult decision. You are blocking emotions or avoiding truth.", reversed: "Mental release, choosing a path, or resolving a dilemma.", advice: { general: "Take off the blindfold. Address the choice you are avoiding.", love: "Tension in love due to unexpressed feelings. Break the silence.", career: "Indecision between two paths. Make a logical list of options." } },
+      { id: "three_comets", name: "Three of Comets", suit: "comets", element: "Air", keywords: ["Heartbreak", "Release", "Sorrow"], upright: "Sorrow or emotional pain. Allow yourself to feel it and heal.", reversed: "Suppressed grief, forgiveness, or recovery starting.", advice: { general: "Pain is a teacher. Allow the release of tears and let healing begin.", love: "Separation, heartbreak, or painful words. Time to heal.", career: "Loss of a project or conflict. Learn the lesson and let it go." } },
+      { id: "four_comets", name: "Four of Comets", suit: "comets", element: "Air", keywords: ["Rest", "Recovery", "Meditation"], upright: "Retreat to rest. Give your mind and body time to heal from stress.", reversed: "Burnout, restlessness, or returning to action too soon.", advice: { general: "Take a break. Unplug from worries and practice meditation.", love: "A quiet period in romance. Focus on self-recovery and peace.", career: "Take time off to prevent burnout. Return with a clear mind." } },
+      { id: "five_comets", name: "Five of Comets", suit: "comets", element: "Air", keywords: ["Conflict", "Defeat", "Self-Interest"], upright: "Winning an argument but losing the relationship. Hollow victory.", reversed: "Compromise, ending a feud, or learning from defeat.", advice: { general: "Pick your battles. Is winning this argument worth the cost?", love: "Conflict driven by ego. Choose peace over being right.", career: "Office politics. Avoid underhanded tactics; protect your integrity." } },
+      { id: "six_comets", name: "Six of Comets", suit: "comets", element: "Air", keywords: ["Transition", "Moving On", "Quiet Waters"], upright: "Moving from turbulent times to calmer shores. A healing journey.", reversed: "Stuck in limbo, refusing to move, or carrying mental baggage.", advice: { general: "Accept help during transitions. Leave worries on the old shore.", love: "Moving on from a difficult period together, or finding peace after breakup.", career: "A smooth transition to a new job or less stressful project." } },
+      { id: "seven_comets", name: "Seven of Comets", suit: "comets", element: "Air", keywords: ["Stealth", "Deception", "Strategy"], upright: "Work smart, avoid direct conflict, or watch out for deception.", reversed: "Exposing dishonesty, coming clean, or poor strategy.", advice: { general: "Use intelligence and strategy. Beware of sneaky behavior around you.", love: "Hidden secrets or lack of transparency. Time for honest talk.", career: "Formulate a unique strategy. Protect your intellectual property." } },
+      { id: "eight_comets", name: "Eight of Comets", suit: "comets", element: "Air", keywords: ["Confinement", "Limitation", "Blindfold"], upright: "Feeling trapped, but the cage is unlocked. Your thoughts bind you.", reversed: "Finding freedom, mental clarity, or taking control.", advice: { general: "Reframe your thoughts. You have the power to step out of this trap.", love: "Feeling restricted in love. Analyze if the limits are self-imposed.", career: "A job that feels like a prison. Look closely at how you can escape." } },
+      { id: "nine_comets", name: "Nine of Comets", suit: "comets", element: "Air", keywords: ["Anxiety", "Worry", "Sleeplessness"], upright: "Nightmares and anxiety. The situation isn't as bad as you imagine.", reversed: "Finding peace, release of fear, or seeking help.", advice: { general: "Stop overthinking. Most of what you fear will never happen.", love: "Irrational worries in love. Talk to your partner for reassurance.", career: "Anxiety about performance. Focus on what you can control today." } },
+      { id: "ten_comets", name: "Ten of Comets", suit: "comets", element: "Air", keywords: ["Endings", "Ruins", "New Dawn"], upright: "The worst is over. A painful cycle has finally ended, bringing hope.", reversed: "Resisting the end, escaping disaster, or slow recovery.", advice: { general: "Let the old path die. The only direction now is up toward the light.", love: "The end of a toxic relationship or painful pattern. A clean slate.", career: "A business failure or job loss opens the door to a better path." } },
+
+      // Worlds Suit (Earth - Material/Finances/Stability)
+      { id: "ace_worlds", name: "Ace of Worlds", suit: "worlds", element: "Earth", keywords: ["Abundance", "Opportunity", "Stability"], upright: "A seed of financial growth, new career opportunity, or physical health.", reversed: "Missed chance, financial delay, or instability.", advice: { general: "A solid opportunity is starting. Manifest it through practical work.", love: "A stable, grounded romance starts. Feels safe and secure.", career: "A job offer, raise, or venture. Grounded in reality." } },
+      { id: "two_worlds", name: "Two of Worlds", suit: "worlds", element: "Earth", keywords: ["Balance", "Adaptability", "Priorities"], upright: "Juggle responsibilities and balance work with leisure. Stay adaptable.", reversed: "Overwhelmed, disorganization, or financial stress.", advice: { general: "Prioritize your tasks. Remain flexible as situations shift.", love: "Balancing relationship duties. Make time for your partner.", career: "Juggling multiple projects. Get organized to avoid mistakes." } },
+      { id: "three_worlds", name: "Three of Worlds", suit: "worlds", element: "Earth", keywords: ["Collaboration", "Skills", "Teamwork"], upright: "Cooperation and master craftsmanship lead to success.", reversed: "Conflict at work, lack of effort, or solo struggle.", advice: { general: "Value the skills of others. Collaborate to build something lasting.", love: "Building a shared life. Practical planning and teamwork in love.", career: "Excellent teamwork. Your skills are appreciated by peers." } },
+      { id: "four_worlds", name: "Four of Worlds", suit: "worlds", element: "Earth", keywords: ["Security", "Control", "Holding On"], upright: "Saving money, setting boundaries, but beware of greed or possessiveness.", reversed: "Letting go, financial loss, or spending too much.", advice: { general: "Protect your assets, but don't let fear of loss close your heart.", love: "Possessiveness or control issues in romance. Give each other space.", career: "Stability in work, but you may be resisting creative risks." } },
+      { id: "five_worlds", name: "Five of Worlds", suit: "worlds", element: "Earth", keywords: ["Scarcity", "Hardship", "Isolation"], upright: "Temporary financial struggle or feeling left out in the cold. Seek help.", reversed: "Recovery from loss, finding support, or spiritual wealth.", advice: { general: "Help is closer than you think. Open your eyes to available support.", love: "Feeling isolated or rejected. Reach out to friends or family.", career: "Financial downturn. Cut expenses and seek community aid." } },
+      { id: "six_worlds", name: "Six of Worlds", suit: "worlds", element: "Earth", keywords: ["Generosity", "Charity", "Sharing"], upright: "A healthy flow of giving and receiving. Share your blessings.", reversed: "One-sided relationships, power dynamics, or greed.", advice: { general: "If wealthy, give generously. If in need, accept help with gratitude.", love: "Balanced give-and-take. Fostering support in romance.", career: "Fair payment, charity projects, or getting a loan approved." } },
+      { id: "seven_worlds", name: "Seven of Worlds", suit: "worlds", element: "Earth", keywords: ["Patience", "Investment", "Harvest"], upright: "Assess your progress. Allow your seeds to grow through patience.", reversed: "Impatience, lack of results, or wasted effort.", advice: { general: "Be patient. Good things take time to grow. Don't dig up the seed.", love: "Patience in building trust. Review long-term goals together.", career: "A period of evaluation. Check if investments are yielding results." } },
+      { id: "eight_worlds", name: "Eight of Worlds", suit: "worlds", element: "Earth", keywords: ["Diligence", "Skill", "Mastery"], upright: "Honing your craft. Focus on detail and build expertise.", reversed: "Lack of focus, boredom, or cutting corners in work.", advice: { general: "Practice makes perfect. Dedicate yourself to self-improvement.", love: "Working hard on communication and building relationship strength.", career: "Mastering a new skill, training, or detailed work success." } },
+      { id: "nine_worlds", name: "Nine of Worlds", suit: "worlds", element: "Earth", keywords: ["Independence", "Luxury", "Abundance"], upright: "Enjoying the fruits of your labor in self-sufficient elegance.", reversed: "Living beyond means, overspending, or lack of security.", advice: { general: "Enjoy your comfort. You have worked hard for your independence.", love: "Happiness in your own company, or a very independent romance.", career: "Financial success, luxury, and reaping profits from work." } },
+      { id: "ten_worlds", name: "Ten of Worlds", suit: "worlds", element: "Earth", keywords: ["Legacy", "Security", "Wealth"], upright: "Long-term abundance, family heritage, and lasting stability.", reversed: "Financial risk, family conflict, or loss of stability.", advice: { general: "Build for the long term. Honor family roots and foundations.", love: "Stable home life and family blessing. Sharing a legacy.", career: "Long-term contract, retirement planning, or family business success." } },
+
+      // Angels Suit (Light - Spiritual Guidance)
+      { id: "ace_angels", name: "Ace of Angels", suit: "angels", element: "Light", keywords: ["Divine Grace", "Spiritual Spark", "Pure Love"], upright: "A powerful blessing of light and divine inspiration enters your life.", reversed: "Feeling spiritually dry, lack of faith, or ignoring signs.", advice: { general: "Open your mind to divine messages. You are highly guided.", love: "Unconditional love entering. A pure, spiritually aligned bond.", career: "Inspiration that feels like a divine calling. Trust the vision." } },
+      { id: "two_angels", name: "Two of Angels", suit: "angels", element: "Light", keywords: ["Graceful Harmony", "Divine Union", "Peace"], upright: "Two souls or choices in perfect celestial alignment and peace.", reversed: "Disharmony, feeling out of sync, or conflict of paths.", advice: { general: "Cultivate peace in your life. Seek mutual understanding.", love: "A highly spiritual soul connection based on celestial love.", career: "A highly aligned partnership that brings peace and prosperity." } },
+      { id: "three_angels", name: "Three of Angels", suit: "angels", element: "Light", keywords: ["Spiritual Growth", "Community", "Rejoicing"], upright: "Celebrate spiritual milestones with your soul tribe. Rejoice.", reversed: "Feeling disconnected from guides, isolation, or doubt.", advice: { general: "Share your spiritual insights with like-minded friends.", love: "Growing together spiritually. Supporting each other's path.", career: "Successful alignment of work with your values. Community benefit." } },
+      { id: "four_angels", name: "Four of Angels", suit: "angels", element: "Light", keywords: ["Sanctuary", "Prayer", "Serenity"], upright: "Create a peaceful inner sanctuary. Your prayers are heard.", reversed: "Restlessness, skipping meditation, or chaotic energy.", advice: { general: "Take time for silent prayer or meditation. Quiet the mind.", love: "A peaceful, secure connection. Safe harbor from external noise.", career: "Create an organized, calm workspace. Work with peace." } },
+      { id: "five_angels", name: "Five of Angels", suit: "angels", element: "Light", keywords: ["Tested Trust", "Grace in Trial", "Solace"], upright: "Finding light in times of shadow. Your angels are very close.", reversed: "Losing hope, refusing comfort, or feeling abandoned.", advice: { general: "Do not lose faith. Trials are temporary. Trust in divine plans.", love: "Facing difficult emotional times together. Seek healing.", career: "Stay resilient during career setbacks. Re-alignment is happening." } },
+      { id: "six_angels", name: "Six of Angels", suit: "angels", element: "Light", keywords: ["Loving Energy", "Harmony", "Healing"], upright: "Beautiful, healing energy restores peace and resolves old issues.", reversed: "Blocked healing, holding grudges, or tension.", advice: { general: "Forgive yourself and others to release heavy energy.", love: "Resolving old romantic conflicts. Harmony returns.", career: "Restoring balance in business relationships. Fair resolutions." } },
+      { id: "seven_angels", name: "Seven of Angels", suit: "angels", element: "Light", keywords: ["Faith", "Patience", "Divine Timing"], upright: "Trust the divine timing of the universe. Things unfold as they must.", reversed: "Impatience, pushing too hard, or doubt in the future.", advice: { general: "Do not force events. Rest in the knowledge that all is well.", love: "Allow romance to develop naturally. Refrain from forcing steps.", career: "Be patient with career advancement. Your time is coming." } },
+      { id: "eight_angels", name: "Eight of Angels", suit: "angels", element: "Light", keywords: ["Divine Strength", "Empowerment", "Guidance"], upright: "Angels infuse you with strength to overcome any obstacle.", reversed: "Feeling weak, ignoring intuitive advice, or exhaustion.", advice: { general: "Summon your inner power. You are guided by heavenly forces.", love: "Fostering inner strength helps you love with confidence.", career: "Rise to meet career demands. Your efforts are supported by light." } },
+      { id: "nine_angels", name: "Nine of Angels", suit: "angels", element: "Light", keywords: ["Fulfillment", "Spiritual Bliss", "Wisdom"], upright: "Deep spiritual fulfillment and peace with your place in the universe.", reversed: "Material focus, superficial spirituality, or doubt.", advice: { general: "Acknowledge the wisdom you have gained. Stand in your truth.", love: "A deeply satisfying connection that respects spiritual growth.", career: "Aligning your career with your soul mission. Feel fulfilled." } },
+      { id: "ten_angels", name: "Ten of Angels", suit: "angels", element: "Light", keywords: ["Ascension", "Divine Unity", "Peace"], upright: "Complete alignment with your soul path. Radiant, eternal peace.", reversed: "Out of alignment, ignoring guidance, or minor setbacks.", advice: { general: "Embrace the oneness of all things. Lead from a space of love.", love: "Ultimate spiritual and emotional union. Peace in love.", career: "Completing a project with absolute success and alignment." } }
     ];
-    
-    // Expanded Angelic Energy Readings Array (20 readings)
+
     const angelicReadings = [
-      { title: "Guiding Light", reading: "Your guardian angels illuminate your path. Trust the signs and subtle nudges that lead you toward your highest good.", image: "images/angelic_readings/guiding_light.jpg" },
-      { title: "Protective Wings", reading: "Feel the embrace of divine protection. Angelic wings shelter you from harm and guide you with unwavering support.", image: "images/angelic_readings/protective_wings.jpg" },
-      { title: "Wisdom from Beyond", reading: "Listen closely—angels are whispering sacred truths. Their wisdom offers clarity in moments of uncertainty.", image: "images/angelic_readings/wisdom_from_beyond.jpg" },
-      { title: "Enlightened Path", reading: "A spiritual awakening is unfolding. Your angels guide you toward clarity and deep inner peace.", image: "images/angelic_readings/enlightened_path.jpg" },
-      { title: "Healing Grace", reading: "Let the healing light of angels wash over you. Embrace the comfort and restoration that comes from divine love.", image: "images/angelic_readings/healing_grace.jpg" },
-      { title: "Courage and Strength", reading: "Divine support bolsters your inner courage. Face challenges with the knowledge that you are never alone.", image: "images/angelic_readings/courage_and_strength.jpg" },
-      { title: "Unconditional Love", reading: "Angels envelop you in boundless love. Their compassion dissolves all fear, leaving your heart open to joy.", image: "images/angelic_readings/unconditional_love.jpg" },
-      { title: "Divine Insight", reading: "Clear revelations from the angelic realm guide you forward. Trust the insights that spark clarity and true understanding.", image: "images/angelic_readings/divine_insight.jpg" },
-      { title: "Abundant Blessings", reading: "Your alignment with the divine draws prosperity and joy. Embrace the flow of abundant blessings in your life.", image: "images/angelic_readings/abundant_blessings.jpg" },
-      { title: "Sacred Transformation", reading: "A powerful shift is underway. Embrace transformation as you evolve into a higher version of yourself, guided by celestial love.", image: "images/angelic_readings/sacred_transformation.jpg" },
-      { title: "Celestial Harmony", reading: "Experience the profound balance of the cosmos. Angelic harmony infuses your life with peace and joyful resonance.", image: "images/angelic_readings/celestial_harmony.jpg" },
-      { title: "Seraphic Song", reading: "Heavenly choirs sing a melody of hope and renewal. Allow their music to uplift your spirit and soothe your soul.", image: "images/angelic_readings/seraphic_song.jpg" },
-      { title: "Mystic Reassurance", reading: "In times of doubt, the angels reassure you with gentle signs. Their soft whispers remind you that all is as it should be.", image: "images/angelic_readings/mystic_reassurance.jpg" },
-      { title: "Eternal Embrace", reading: "Feel the timeless embrace of divine love. You are held in an eternal circle of protection and care by your angelic guides.", image: "images/angelic_readings/eternal_embrace.jpg" },
-      { title: "Cosmic Renewal", reading: "A refreshing wave of spiritual energy revitalizes your being. Embrace the new beginnings and opportunities that await you.", image: "images/angelic_readings/cosmic_renewal.jpg" },
-      { title: "Angelic Awakening", reading: "Awaken to your highest self as the angels open your eyes to hidden truths and profound insights.", image: "images/angelic_readings/angelic_awakening.jpg" },
-      { title: "Heaven's Promise", reading: "The promise of divine support is ever-present. Trust that every step you take is guided by a higher plan.", image: "images/angelic_readings/heavens_promise.jpg" },
-      { title: "Radiant Unity", reading: "Feel the powerful unity of the cosmos. Your connection to the divine is a source of infinite strength and joy.", image: "images/angelic_readings/radiant_unity.jpg" },
-      { title: "Infinite Compassion", reading: "Let the boundless compassion of the angels soothe your heart. Their empathy helps you heal and grow stronger every day.", image: "images/angelic_readings/infinite_compassion.jpg" },
-      { title: "Divine Alignment", reading: "Your path is perfectly aligned with the cosmos. Embrace the synchronicity of life as the angels guide your every step.", image: "images/angelic_readings/divine_alignment.jpg" }
+      { title: "Guiding Light", reading: "Your guardian angels illuminate your path. Trust the subtle signs, synchronicities, and whispers that lead you toward your highest good." },
+      { title: "Protective Wings", reading: "Feel the embrace of divine protection. Angelic wings shelter you from harm and guide your steps with unwavering support." },
+      { title: "Wisdom from Beyond", reading: "Listen closely—angels are whispering sacred truths. Their quiet guidance offers clarity in moments of confusion." },
+      { title: "Enlightened Path", reading: "A spiritual awakening is unfolding for you. Your angels are guiding you toward clarity and deep, lasting inner peace." },
+      { title: "Healing Grace", reading: "Let the healing light of the angels wash over you. Embrace the comfort, restoration, and love that comes from the divine." },
+      { title: "Courage and Strength", reading: "Divine support bolsters your inner courage. Face your obstacles with the knowledge that you are never alone." },
+      { title: "Unconditional Love", reading: "Angels envelop you in boundless love. Their compassion dissolves all fear, leaving your heart open to joy." },
+      { title: "Divine Insight", reading: "Clear revelations from the angelic realm guide you forward. Trust the insights that spark clarity and understanding." },
+      { title: "Abundant Blessings", reading: "Your alignment with the divine draws prosperity and joy. Embrace the flow of abundant blessings in your life." },
+      { title: "Sacred Transformation", reading: "A powerful shift is underway. Embrace transformation as you evolve into a higher version of yourself, guided by celestial love." },
+      { title: "Celestial Harmony", reading: "Experience the profound balance of the cosmos. Angelic harmony infuses your life with peace and joyful resonance." },
+      { title: "Seraphic Song", reading: "Heavenly choirs sing a melody of hope and renewal. Allow their music to uplift your spirit and soothe your soul." },
+      { title: "Mystic Reassurance", reading: "In times of doubt, the angels reassure you with gentle signs. Their soft whispers remind you that all is as it should be." },
+      { title: "Eternal Embrace", reading: "Feel the timeless embrace of divine love. You are held in an eternal circle of protection and care by your angelic guides." },
+      { title: "Cosmic Renewal", reading: "A refreshing wave of spiritual energy revitalizes your being. Embrace the new beginnings and opportunities that await you." }
     ];
-    
-    // Event listeners for buttons
-    document.getElementById("tarotBtn").addEventListener("click", function() {
-      const card = cosmicCards[Math.floor(Math.random() * cosmicCards.length)];
-      document.getElementById("tarotResult").innerHTML = `<h2>${card.name} </h2><p>${card.description}</p>`;
+
+    const angelNumbers = [
+      { num: "111", title: "Manifestation & Alignment", msg: "Your thoughts are manifesting rapidly. Focus purely on your desires and release all doubts to the universe." },
+      { num: "222", title: "Trust & Harmony", msg: "Have faith. Everything is unfolding in divine order. Keep your balance and build your partnerships." },
+      { num: "333", title: "Ascended Masters & Support", msg: "You are surrounded by teachers and spiritual guides. Call upon them for guidance, love, and protection." },
+      { num: "444", title: "Protection & Stability", msg: "The angels are with you, protecting and guiding you. Your foundations are secure; continue your work." },
+      { num: "555", title: "Pivotal Change", msg: "Significant changes are on the horizon. Embrace these transitions as they lead you closer to your soul purpose." },
+      { num: "666", title: "Rebalance & Reflection", msg: "A nudge to rebalance your thoughts. Align your material concerns with spiritual peace and trust." },
+      { num: "777", title: "Divine Luck & Spiritual Path", msg: "You are in perfect alignment with your soul path. Spiritual rewards and insights are flowing to you." },
+      { num: "888", title: "Infinite Abundance", msg: "Abundance in all forms is flowing into your life. Trust that you are supported in your material goals." },
+      { num: "999", title: "Completion & Rebirth", msg: "A major cycle is closing. Finish what needs to be completed so you can step into your next chapter." }
+    ];
+
+
+    // --- AUDIO SYSTEM (Web Audio API) ---
+    const AudioController = {
+      ctx: null,
+      enabled: false,
+      
+      init() {
+        if (this.ctx) return;
+        try {
+          this.ctx = new (window.AudioContext || window.webkitAudioContext)();
+        } catch(e) {
+          console.warn("Web Audio API not supported", e);
+        }
+      },
+      
+      toggle() {
+        this.enabled = !this.enabled;
+        if (this.enabled) {
+          this.init();
+          // Play a brief introductory beep to start context
+          this.playBeep(440, 0.05, 0.05);
+        }
+        return this.enabled;
+      },
+      
+      playBeep(freq, volume, duration) {
+        if (!this.ctx) return;
+        const osc = this.ctx.createOscillator();
+        const gain = this.ctx.createGain();
+        osc.type = 'sine';
+        osc.frequency.value = freq;
+        gain.gain.setValueAtTime(volume, this.ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + duration);
+        osc.connect(gain);
+        gain.connect(this.ctx.destination);
+        osc.start();
+        osc.stop(this.ctx.currentTime + duration);
+      },
+      
+      playDeal() {
+        if (!this.enabled || !this.ctx) return;
+        // Soft paper slide sound
+        const now = this.ctx.currentTime;
+        const osc = this.ctx.createOscillator();
+        const gain = this.ctx.createGain();
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(280, now);
+        osc.frequency.exponentialRampToValueAtTime(60, now + 0.1);
+        gain.gain.setValueAtTime(0.12, now);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.1);
+        osc.connect(gain);
+        gain.connect(this.ctx.destination);
+        osc.start();
+        osc.stop(now + 0.12);
+      },
+      
+      playFlip() {
+        if (!this.enabled || !this.ctx) return;
+        // Mystic chime/arpeggio
+        const now = this.ctx.currentTime;
+        const freqs = [392.00, 523.25, 659.25, 783.99, 1046.50]; // G, C, E, G, C
+        freqs.forEach((freq, idx) => {
+          const osc = this.ctx.createOscillator();
+          const gain = this.ctx.createGain();
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(freq, now + idx * 0.05);
+          gain.gain.setValueAtTime(0.08, now + idx * 0.05);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + idx * 0.05 + 0.5);
+          osc.connect(gain);
+          gain.connect(this.ctx.destination);
+          osc.start(now + idx * 0.05);
+          osc.stop(now + idx * 0.05 + 0.55);
+        });
+      },
+      
+      playHum(duration) {
+        if (!this.enabled || !this.ctx) return;
+        const now = this.ctx.currentTime;
+        const osc = this.ctx.createOscillator();
+        const gain = this.ctx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(136.1, now); // Ohm frequency (136.1 Hz)
+        
+        gain.gain.setValueAtTime(0.001, now);
+        gain.gain.linearRampToValueAtTime(0.07, now + 1.0); // Slow fade-in
+        gain.gain.linearRampToValueAtTime(0.07, now + duration - 1.0);
+        gain.gain.linearRampToValueAtTime(0.001, now + duration); // Slow fade-out
+        
+        osc.connect(gain);
+        gain.connect(this.ctx.destination);
+        osc.start();
+        osc.stop(now + duration);
+      }
+    };
+
+
+    // --- SVG HELPER ---
+    function getCardSvg(suit) {
+      const color = getSuitColor(suit);
+      switch(suit) {
+        case 'major':
+          return `<svg viewBox="0 0 100 100" class="card-icon" style="filter: drop-shadow(0 0 8px ${color})">
+            <circle cx="50" cy="50" r="38" stroke="${color}" stroke-width="1.5" fill="none" stroke-dasharray="2,2"/>
+            <polygon points="50,18 22,68 78,68" stroke="${color}" stroke-width="2" fill="none"/>
+            <circle cx="50" cy="50" r="10" stroke="${color}" stroke-dasharray="2,2" stroke-width="1.5" fill="none"/>
+            <circle cx="50" cy="50" r="4" fill="${color}"/>
+            <line x1="50" y1="18" x2="50" y2="8" stroke="${color}" stroke-width="1.5"/>
+            <line x1="22" y1="68" x2="14" y2="73" stroke="${color}" stroke-width="1.5"/>
+            <line x1="78" y1="68" x2="86" y2="73" stroke="${color}" stroke-width="1.5"/>
+          </svg>`;
+        case 'stars':
+          return `<svg viewBox="0 0 100 100" class="card-icon" style="filter: drop-shadow(0 0 8px ${color})">
+            <path d="M50,12 L54,35 L77,35 L59,49 L65,72 L50,59 L35,72 L41,49 L23,35 L46,35 Z" stroke="${color}" stroke-width="2" fill="none"/>
+            <circle cx="50" cy="46" r="28" stroke="${color}" stroke-width="1" fill="none" stroke-dasharray="4,4"/>
+            <line x1="50" y1="10" x2="50" y2="85" stroke="${color}" stroke-width="0.5"/>
+            <line x1="15" y1="46" x2="85" y2="46" stroke="${color}" stroke-width="0.5"/>
+          </svg>`;
+        case 'moons':
+          return `<svg viewBox="0 0 100 100" class="card-icon" style="filter: drop-shadow(0 0 8px ${color})">
+            <path d="M38,22 A26,26 0 1,0 74,58 A21,21 0 1,1 38,22 Z" stroke="${color}" stroke-width="2" fill="none"/>
+            <circle cx="62" cy="38" r="4" fill="${color}"/>
+            <circle cx="42" cy="56" r="2" fill="${color}"/>
+            <path d="M18,48 Q48,18 78,48" stroke="${color}" stroke-width="1" fill="none" stroke-dasharray="2,2"/>
+          </svg>`;
+        case 'comets':
+          return `<svg viewBox="0 0 100 100" class="card-icon" style="filter: drop-shadow(0 0 8px ${color})">
+            <line x1="15" y1="85" x2="70" y2="30" stroke="${color}" stroke-width="1" stroke-dasharray="3,3"/>
+            <path d="M85,15 L78,35 L65,48 L52,35 L65,22 Z" stroke="${color}" stroke-width="2" fill="none"/>
+            <path d="M55,45 L15,85 M50,40 L10,75 M60,50 L25,90" stroke="${color}" stroke-width="1.5" stroke-linecap="round"/>
+            <circle cx="65" cy="35" r="8" stroke="${color}" stroke-width="1" fill="none"/>
+          </svg>`;
+        case 'worlds':
+          return `<svg viewBox="0 0 100 100" class="card-icon" style="filter: drop-shadow(0 0 8px ${color})">
+            <circle cx="50" cy="50" r="22" stroke="${color}" stroke-width="2" fill="none"/>
+            <ellipse cx="50" cy="50" rx="42" ry="12" stroke="${color}" stroke-width="1.5" fill="none" transform="rotate(-15 50 50)"/>
+            <circle cx="50" cy="50" r="35" stroke="${color}" stroke-width="0.5" fill="none" stroke-dasharray="3,3"/>
+            <circle cx="50" cy="15" r="4" fill="${color}"/>
+            <circle cx="50" cy="85" r="4" fill="${color}"/>
+          </svg>`;
+        case 'angels':
+          return `<svg viewBox="0 0 100 100" class="card-icon" style="filter: drop-shadow(0 0 8px ${color})">
+            <path d="M50,45 C35,20 15,35 25,65 C32,80 50,75 50,75 C50,75 68,80 75,65 C85,35 65,20 50,45 Z" stroke="${color}" stroke-width="1.5" fill="none"/>
+            <path d="M50,40 C45,25 30,35 35,55 C40,65 50,60 50,60 C50,60 60,65 65,55 C70,35 55,25 50,40 Z" stroke="${color}" stroke-width="1.5" fill="none" opacity="0.6"/>
+            <circle cx="50" cy="24" r="6" stroke="${color}" stroke-width="1.5" fill="none"/>
+            <circle cx="50" cy="50" r="3" fill="${color}"/>
+          </svg>`;
+        default:
+          return '';
+      }
+    }
+
+    function getSuitColor(suit) {
+      switch(suit) {
+        case 'major': return 'var(--color-major)';
+        case 'stars': return 'var(--color-stars)';
+        case 'moons': return 'var(--color-moons)';
+        case 'comets': return 'var(--color-comets)';
+        case 'worlds': return 'var(--color-worlds)';
+        case 'angels': return 'var(--color-angels)';
+        default: return '#ffffff';
+      }
+    }
+
+
+    // --- TAB NAVIGATION ---
+    const navButtons = document.querySelectorAll(".nav-btn");
+    const tabContents = document.querySelectorAll(".tab-content");
+
+    navButtons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        const tabName = btn.getAttribute("data-tab");
+        
+        navButtons.forEach(b => b.classList.remove("active"));
+        tabContents.forEach(t => t.classList.remove("active"));
+        
+        btn.classList.add("active");
+        document.getElementById(tabName).classList.add("active");
+        
+        // Initializer triggers
+        if (tabName === 'readers-journal') {
+          JournalController.renderTimeline();
+        }
+      });
     });
-    
-    document.getElementById("angelicBtn").addEventListener("click", function() {
-      const reading = angelicReadings[Math.floor(Math.random() * angelicReadings.length)];
-      document.getElementById("angelicResult").innerHTML = `<h2>${reading.title}</h2><p>${reading.reading}</p>`;
+
+
+    // --- SOUND TOGGLE ---
+    const soundToggleBtn = document.getElementById("soundToggleBtn");
+    const soundIcon = document.getElementById("soundIcon");
+    const soundText = document.getElementById("soundText");
+    const soundStatusText = document.getElementById("soundStatusText");
+
+    soundToggleBtn.addEventListener("click", () => {
+      const enabled = AudioController.toggle();
+      if (enabled) {
+        soundIcon.textContent = "🔊";
+        soundText.textContent = "Sound On";
+        soundStatusText.textContent = "Ambient audio guides are active";
+        soundToggleBtn.classList.add("active");
+      } else {
+        soundIcon.textContent = "🔇";
+        soundText.textContent = "Sound Off";
+        soundStatusText.textContent = "Click to enable ambient audio guides";
+        soundToggleBtn.classList.remove("active");
+      }
+    });
+
+
+    // --- SPREAD ROOM CONTROLLER ---
+    const SpreadController = {
+      activeReading: null,
+      dealtCards: [],
+      
+      init() {
+        document.getElementById("dealBtn").addEventListener("click", () => this.deal());
+        document.getElementById("saveJournalBtn").addEventListener("click", () => this.saveToJournal());
+      },
+      
+      deal() {
+        const question = document.getElementById("questionInput").value.trim();
+        const spreadType = document.getElementById("spreadSelect").value;
+        const slotsContainer = document.getElementById("spreadSlots");
+        const boardInstructions = document.getElementById("boardInstructions");
+        const detailsArea = document.getElementById("readingDetailsArea");
+        
+        slotsContainer.innerHTML = "";
+        detailsArea.style.display = "none";
+        boardInstructions.style.display = "none";
+        
+        this.dealtCards = [];
+        let numCards = 1;
+        let positions = [];
+        
+        if (spreadType === 'single') {
+          numCards = 1;
+          positions = [{ label: "Daily Guidance & Focus" }];
+        } else if (spreadType === 'three-card') {
+          numCards = 3;
+          positions = [
+            { label: "Past (Foundations & History)" },
+            { label: "Present (Current Energies & Blocks)" },
+            { label: "Future (Potential Outcome & Advice)" }
+          ];
+        } else if (spreadType === 'five-card') {
+          numCards = 5;
+          positions = [
+            { label: "Spirit (Inner Core & Alignment)" },
+            { label: "Fire (Actions & Inspiration)" },
+            { label: "Water (Feelings & Intuition)" },
+            { label: "Air (Intellect & Choices)" },
+            { label: "Earth (Stability & Work)" }
+          ];
+        }
+        
+        // Shuffle cards data
+        const shuffled = [...cosmicCards].sort(() => Math.random() - 0.5);
+        
+        for (let i = 0; i < numCards; i++) {
+          const card = shuffled[i];
+          // Determine upright/reversed (25% chance of being reversed)
+          const isReversed = Math.random() < 0.25;
+          this.dealtCards.push({ card, isReversed, position: positions[i].label });
+          
+          // Render the slot with its card
+          const slot = document.createElement("div");
+          slot.className = "slot-container";
+          
+          const label = document.createElement("div");
+          label.className = "slot-label";
+          label.textContent = positions[i].label;
+          slot.appendChild(label);
+          
+          const cardWrapper = document.createElement("div");
+          cardWrapper.className = "card-wrapper dealt";
+          cardWrapper.style.animationDelay = `${i * 0.2}s`;
+          if (isReversed) {
+            cardWrapper.classList.add("reversed");
+          }
+          cardWrapper.setAttribute("data-index", i);
+          
+          // Card Back Design (Mandala SVG)
+          const cardInner = document.createElement("div");
+          cardInner.className = "card-inner";
+          
+          const cardBack = document.createElement("div");
+          cardBack.className = "card-back";
+          
+          const backPattern = document.createElement("div");
+          backPattern.className = "card-back-pattern";
+          backPattern.innerHTML = `
+            <svg viewBox="0 0 100 100">
+              <circle cx="50" cy="50" r="30" />
+              <polygon points="50,20 40,50 50,80 60,50" />
+              <circle cx="50" cy="50" r="12" />
+              <line x1="50" y1="10" x2="50" y2="90" />
+              <line x1="10" y1="50" x2="90" y2="50" />
+            </svg>
+          `;
+          cardBack.appendChild(backPattern);
+          cardInner.appendChild(cardBack);
+          
+          // Card Front Design
+          const cardFront = document.createElement("div");
+          cardFront.className = "card-front";
+          cardFront.style.setProperty('--card-theme-color', getSuitColor(card.suit));
+          
+          cardFront.innerHTML = `
+            <div class="card-front-border"></div>
+            <div class="card-front-suit">${card.suit}</div>
+            <div class="card-icon-container">${getCardSvg(card.suit)}</div>
+            <div class="card-front-title">${card.name}</div>
+            <div class="card-front-keywords">${card.keywords.join(" • ")}</div>
+          `;
+          cardInner.appendChild(cardFront);
+          cardWrapper.appendChild(cardInner);
+          
+          // Sound trigger during dealing staggered
+          setTimeout(() => {
+            AudioController.playDeal();
+          }, i * 200);
+          
+          // Handle Flip
+          cardWrapper.addEventListener("click", () => this.flipCard(cardWrapper, i));
+          
+          slot.appendChild(cardWrapper);
+          slotsContainer.appendChild(slot);
+        }
+        
+        // Save information in controller
+        this.activeReading = {
+          date: new Date().toISOString(),
+          question: question || "General Reading (No question formulated)",
+          spreadType: spreadType,
+          cards: this.dealtCards,
+          notes: ""
+        };
+      },
+      
+      flipCard(wrapper, index) {
+        if (wrapper.classList.contains("flipped")) return;
+        
+        wrapper.classList.add("flipped");
+        AudioController.playFlip();
+        
+        // Show interpretation section once first card is flipped
+        const detailsArea = document.getElementById("readingDetailsArea");
+        detailsArea.style.display = "block";
+        
+        const detailsGrid = document.getElementById("readingDetailsGrid");
+        const item = this.dealtCards[index];
+        
+        const detailCard = document.createElement("div");
+        detailCard.className = "detail-card";
+        detailCard.style.borderTop = `4px solid ${getSuitColor(item.card.suit)}`;
+        
+        const themeColor = getSuitColor(item.card.suit);
+        const orientationText = item.isReversed ? "Reversed" : "Upright";
+        const descriptionText = item.isReversed ? item.card.reversed : item.card.upright;
+        
+        detailCard.innerHTML = `
+          <div class="detail-card-badge" style="background:rgba(255,255,255,0.05); color:${themeColor}; border: 1px solid ${themeColor};">
+            ${item.position} • ${orientationText}
+          </div>
+          <h4 class="detail-card-title">${item.card.name}</h4>
+          <div class="detail-card-keywords">${item.card.keywords.join(" • ")}</div>
+          <p class="detail-card-description">${descriptionText}</p>
+          <button class="btn-secondary" onclick="CodexController.showCardModal('${item.card.id}')">
+            <svg style="width:14px; height:14px; fill:currentColor;" viewBox="0 0 24 24"><path d="M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17M12,4.5C7,4.5 2.73,7.61 1,12C2.73,16.39 7,19.5 12,19.5C17,19.5 21.27,16.39 23,12C21.27,7.61 17,4.5 12,4.5Z"/></svg>
+            Explore Card Codex Entry
+          </button>
+        `;
+        
+        detailsGrid.appendChild(detailCard);
+      },
+      
+      saveToJournal() {
+        if (!this.activeReading) return;
+        
+        const notes = document.getElementById("readingNotes").value.trim();
+        this.activeReading.notes = notes;
+        
+        JournalController.saveEntry(this.activeReading);
+        
+        // Reset notes text area and display alert
+        document.getElementById("readingNotes").value = "";
+        alert("Reading saved successfully to your Celestial Journal!");
+      }
+    };
+
+
+    // --- COSMIC CODEX CONTROLLER ---
+    const CodexController = {
+      activeFilter: 'all',
+      searchQuery: '',
+      
+      init() {
+        this.renderCodex();
+        
+        const filterBtns = document.querySelectorAll(".filter-btn");
+        filterBtns.forEach(btn => {
+          btn.addEventListener("click", () => {
+            filterBtns.forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+            this.activeFilter = btn.getAttribute("data-filter");
+            this.renderCodex();
+          });
+        });
+        
+        document.getElementById("codexSearchInput").addEventListener("input", (e) => {
+          this.searchQuery = e.target.value.toLowerCase().trim();
+          this.renderCodex();
+        });
+        
+        document.getElementById("modalCloseBtn").addEventListener("click", () => this.hideModal());
+        document.getElementById("cardDetailModal").addEventListener("click", (e) => {
+          if (e.target.id === 'cardDetailModal') this.hideModal();
+        });
+      },
+      
+      renderCodex() {
+        const grid = document.getElementById("codexGrid");
+        grid.innerHTML = "";
+        
+        const filtered = cosmicCards.filter(card => {
+          const matchFilter = this.activeFilter === 'all' || card.suit === this.activeFilter;
+          const matchSearch = card.name.toLowerCase().includes(this.searchQuery) || 
+                              card.keywords.some(k => k.toLowerCase().includes(this.searchQuery)) ||
+                              card.element.toLowerCase().includes(this.searchQuery);
+          return matchFilter && matchSearch;
+        });
+        
+        filtered.forEach(card => {
+          const cardTheme = getSuitColor(card.suit);
+          const block = document.createElement("div");
+          block.className = "codex-card";
+          block.style.setProperty('--card-color', cardTheme);
+          block.innerHTML = `
+            <div style="width:70px; height:70px;">${getCardSvg(card.suit)}</div>
+            <div class="codex-card-suit">${card.suit}</div>
+            <h4 class="codex-card-title">${card.name}</h4>
+            <div style="font-size:0.65rem; color:var(--text-muted);">${card.keywords.slice(0, 2).join(" • ")}</div>
+          `;
+          block.addEventListener("click", () => this.showCardModal(card.id));
+          grid.appendChild(block);
+        });
+      },
+      
+      showCardModal(cardId) {
+        const card = cosmicCards.find(c => c.id === cardId);
+        if (!card) return;
+        
+        const themeColor = getSuitColor(card.suit);
+        
+        // Populate modal data
+        document.getElementById("modalCardName").textContent = card.name;
+        document.getElementById("modalCardSuit").textContent = `Suit: ${card.suit}`;
+        document.getElementById("modalCardElement").textContent = `Element: ${card.element}`;
+        document.getElementById("modalCardKeywords").textContent = card.keywords.join(" • ");
+        document.getElementById("modalCardUpright").textContent = card.upright;
+        document.getElementById("modalCardReversed").textContent = card.reversed;
+        
+        document.getElementById("modalAdviceLove").textContent = card.advice.love;
+        document.getElementById("modalAdviceCareer").textContent = card.advice.career;
+        
+        const artContainer = document.getElementById("modalCardArt");
+        artContainer.style.setProperty('--modal-theme-color', themeColor);
+        artContainer.innerHTML = `
+          <div class="card-front-border"></div>
+          <div class="card-front-suit">${card.suit}</div>
+          <div class="card-icon-container" style="width:110px; height:110px;">${getCardSvg(card.suit)}</div>
+          <div class="card-front-keywords" style="font-size:0.75rem; color:${themeColor};">${card.keywords.join(" • ")}</div>
+        `;
+        
+        document.getElementById("cardDetailModal").classList.add("active");
+        AudioController.playFlip();
+      },
+      
+      hideModal() {
+        document.getElementById("cardDetailModal").classList.remove("active");
+      }
+    };
+
+
+    // --- ANGELIC SANCTUARY CONTROLLER ---
+    const AngelicController = {
+      breathingInterval: null,
+      breathingActive: false,
+      
+      init() {
+        document.getElementById("drawAngelBtn").addEventListener("click", () => this.drawAngelMessage());
+        document.getElementById("angelNumberBtn").addEventListener("click", () => this.generateAngelNumber());
+        document.getElementById("breathingBtn").addEventListener("click", () => this.toggleBreathing());
+      },
+      
+      drawAngelMessage() {
+        const display = document.getElementById("angelicCardDisplay");
+        const idx = Math.floor(Math.random() * angelicReadings.length);
+        const item = angelicReadings[idx];
+        
+        display.innerHTML = `
+          <h4 style="font-family:var(--font-mystical); color:var(--color-angels); font-size:1.4rem; margin-bottom:0.75rem;">
+            ✦ ${item.title} ✦
+          </h4>
+          <p style="font-size:1rem; line-height:1.6; max-width:450px; margin:0 auto; color:var(--text-main);">
+            "${item.reading}"
+          </p>
+        `;
+        
+        AudioController.playFlip();
+      },
+      
+      generateAngelNumber() {
+        const display = document.getElementById("angelicCardDisplay");
+        const idx = Math.floor(Math.random() * angelNumbers.length);
+        const item = angelNumbers[idx];
+        
+        display.innerHTML = `
+          <div class="angel-number-display">${item.num}</div>
+          <h4 style="font-family:var(--font-mystical); color:var(--accent-gold); font-size:1.1rem; margin-bottom:0.5rem;">
+            ${item.title}
+          </h4>
+          <p style="font-size:0.95rem; max-width:450px; margin:0 auto; color:var(--text-muted);">
+            ${item.msg}
+          </p>
+        `;
+        
+        AudioController.playFlip();
+      },
+      
+      toggleBreathing() {
+        const bubble = document.getElementById("breathingBubble");
+        const text = document.getElementById("bubbleText");
+        const btn = document.getElementById("breathingBtn");
+        
+        if (this.breathingActive) {
+          // Stop breathing
+          clearInterval(this.breathingInterval);
+          this.breathingActive = false;
+          bubble.className = "breathing-bubble";
+          text.textContent = "Ground";
+          btn.textContent = "Start Breathing Guide";
+        } else {
+          // Start box breathing (4s inhale, 4s hold, 4s exhale, 4s hold)
+          this.breathingActive = true;
+          btn.textContent = "Stop Breathing Guide";
+          
+          let step = 0; // 0: inhale, 1: hold, 2: exhale, 3: hold
+          const runStep = () => {
+            if (!this.breathingActive) return;
+            
+            if (step === 0) {
+              bubble.className = "breathing-bubble inhale";
+              text.textContent = "Breathe In";
+              AudioController.playHum(4);
+            } else if (step === 1) {
+              bubble.className = "breathing-bubble hold";
+              text.textContent = "Hold";
+            } else if (step === 2) {
+              bubble.className = "breathing-bubble exhale";
+              text.textContent = "Breathe Out";
+            } else if (step === 3) {
+              bubble.className = "breathing-bubble";
+              text.textContent = "Hold";
+            }
+            
+            step = (step + 1) % 4;
+          };
+          
+          runStep();
+          this.breathingInterval = setInterval(runStep, 4000);
+        }
+      }
+    };
+
+
+    // --- JOURNAL CONTROLLER (Local Storage) ---
+    const JournalController = {
+      saveEntry(entry) {
+        const logs = this.getLogs();
+        logs.unshift(entry); // Add to the beginning
+        localStorage.setItem("celestial_tarot_journal", JSON.stringify(logs));
+      },
+      
+      getLogs() {
+        const data = localStorage.getItem("celestial_tarot_journal");
+        return data ? JSON.parse(data) : [];
+      },
+      
+      deleteEntry(index) {
+        if (!confirm("Are you sure you want to delete this journal entry permanently?")) return;
+        const logs = this.getLogs();
+        logs.splice(index, 1);
+        localStorage.setItem("celestial_tarot_journal", JSON.stringify(logs));
+        this.renderTimeline();
+      },
+      
+      renderTimeline() {
+        const timeline = document.getElementById("journalTimeline");
+        const emptyState = document.getElementById("journalEmptyState");
+        const logs = this.getLogs();
+        
+        timeline.innerHTML = "";
+        
+        if (logs.length === 0) {
+          emptyState.style.display = "block";
+          return;
+        }
+        
+        emptyState.style.display = "none";
+        
+        logs.forEach((log, index) => {
+          const dateFormatted = new Date(log.date).toLocaleDateString(undefined, {
+            weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit'
+          });
+          
+          const card = document.createElement("div");
+          card.className = "journal-card";
+          
+          // Generate token badges for drawn cards
+          const tokensHtml = log.cards.map(item => {
+            const suitColor = getSuitColor(item.card.suit);
+            const orientation = item.isReversed ? "Reversed" : "Upright";
+            return `
+              <div class="journal-card-token" style="--token-color: ${suitColor}">
+                <span>${item.card.name}</span> (${orientation})
+              </div>
+            `;
+          }).join("");
+          
+          card.innerHTML = `
+            <div class="journal-header">
+              <div class="journal-date-spread">
+                <span class="journal-date">${dateFormatted}</span>
+                <span class="journal-spread-type">${log.spreadType.replace("-", " ")} spread</span>
+              </div>
+              <button class="btn-delete" onclick="JournalController.deleteEntry(${index})">Delete</button>
+            </div>
+            <div class="journal-question">"Query: ${log.question}"</div>
+            <div class="journal-cards-row">
+              ${tokensHtml}
+            </div>
+            ${log.notes ? `
+              <div class="journal-notes-section">
+                <div class="journal-notes-header">Your Reflection</div>
+                <div class="journal-notes-body">${log.notes}</div>
+              </div>
+            ` : ''}
+          `;
+          
+          timeline.appendChild(card);
+        });
+      }
+    };
+
+
+    // --- INITIALIZE APPLICATION ---
+    document.addEventListener("DOMContentLoaded", () => {
+      SpreadController.init();
+      CodexController.init();
+      AngelicController.init();
     });
   </script>
 </body>
